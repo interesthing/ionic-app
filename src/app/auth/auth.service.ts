@@ -9,6 +9,8 @@ import { Observable, ReplaySubject, from } from 'rxjs';
 import { delayWhen, map } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';
 
+import { environment } from 'src/environments/environment';
+
 /**
  * Authentication service for login/logout.
  */
@@ -45,7 +47,7 @@ export class AuthService {
 
   logIn(authRequest: AuthRequest): Observable<User> {
 
-    const authUrl = 'https://interesthing.herokuapp.com/users/login';
+    const authUrl = `${environment.apiUrl}/users/login`;
     return this.http.post<AuthResponse>(authUrl, authRequest).pipe(
       // TODO: delay the observable stream while persisting the authentication response.
       delayWhen(auth => {

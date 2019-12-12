@@ -1,9 +1,68 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>CreatePoi</ion-title>
+    <ion-title>Ajouter une interesthing</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  Let's create a POI.
+  <p>Coordonées :
+    Les coordonnées du point que vous allez ajouter seront vos coordonnées actuelles.</p>
+
+  <form>
+    <ion-label>Ajouter une photo :</ion-label>
+
+    <ion-fab vertical="center" horizontal="center" slot="fixed">     
+        <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      <ion-fab-list side="bottom">
+        <ion-fab-button>
+          <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button>
+            <ion-icon name="images"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+
+    <ion-label>Titre</ion-label>
+    <ion-input type="text" placeholder="Titre" name="title" required></ion-input>
+    <ion-label>Description</ion-label>
+    <ion-input type="text" placeholder="Description" name="desc" required></ion-input>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Catégorie</ion-label>
+        <ion-select placeholder="Selectionnez une catégorie">
+          <ion-select-option value="art">Art</ion-select-option>
+          <ion-select-option value="funny">Funny</ion-select-option>
+          <ion-select-option value="shortcuts">Shortcuts</ion-select-option>
+          <ion-select-option value="spots">Spots</ion-select-option>
+          <ion-select-option value="wtf">WTF</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit">Ajouter</ion-button>`
+  </form>
+
+
+
+  <!-- POST /api/pois HTTP/1.1
+  Content-Type: application/json
+
+  {
+  "pos": {
+  "coordinates": [
+  46.781142,
+  6.647189,
+  ],
+  "type": "Point"
+  },
+  "photos": [
+  "superphoto1"
+  ],
+  "postedBy": "5dc2e88f7f63bc03bb1c04c1",
+  "title": "Lorem Ipsum",
+  "description": "Lorem ipsum dolor sit amet donelacus",
+  "categorie-->
 </ion-content>

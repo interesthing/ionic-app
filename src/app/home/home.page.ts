@@ -21,6 +21,7 @@ export class HomePage{
     this.tabs = [
       { title: 'Accueil', icon: 'home', path: 'index'},
       { title: 'Carte', icon: 'map', path: 'map'},
+      { title: 'Intersthings', icon: 'pin', path: 'pois'},
       { title: 'Moi', icon: 'person', path: 'profil'}
     ];
   }

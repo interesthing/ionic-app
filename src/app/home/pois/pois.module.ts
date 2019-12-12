@@ -4,18 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { IndexPageRoutingModule } from './index-routing.module';
+import { PoisPageRoutingModule } from './pois-routing.module';
 
-import { IndexPage } from './index.page';
-
+import { PoisPage } from './pois.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    IndexPageRoutingModule
+    PoisPageRoutingModule
   ],
-  declarations: [IndexPage]
+  declarations: [PoisPage]
 })
-export class IndexPageModule {}
+export class PoisPageModule {}

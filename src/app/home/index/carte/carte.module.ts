@@ -4,18 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { IndexPageRoutingModule } from './index-routing.module';
+import { CartePageRoutingModule } from './carte-routing.module';
 
-import { IndexPage } from './index.page';
-
+import { CartePage } from './carte.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    IndexPageRoutingModule
+    CartePageRoutingModule
   ],
-  declarations: [IndexPage]
+  declarations: [CartePage]
 })
-export class IndexPageModule {}
+export class CartePageModule {}
