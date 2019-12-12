@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Index</ion-title>
+    <ion-title>Accueil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-Salut c'est la page d'accueil
+
+  <ion-searchbar placeholder="Entrez un terme..."  animated></ion-searchbar>
+  <ion-button (click)="redirectToMap()" color="secondary">
+    À proximité <ion-icon name="navigate"></ion-icon>
+  </ion-button>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="redirectToPoiForm()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
