@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { CreatePoiPageRoutingModule } from './create-poi-routing.module';
 
-import { HomePage } from './home.page';
+import { CreatePoiPage } from './create-poi.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    CreatePoiPageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [CreatePoiPage]
 })
-export class HomePageModule {}
+export class CreatePoiPageModule {}
