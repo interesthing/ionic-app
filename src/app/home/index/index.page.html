@@ -1,9 +1,40 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Index</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
-Salut c'est la page d'accueil
-</ion-content>
+
+<body>
+  <ion-app>
+      <ion-header>
+          <ion-toolbar>
+            <ion-title>Index</ion-title>
+          </ion-toolbar>
+        </ion-header>
+    <ion-content fullscreen>
+      <ion-list>
+        <ion-list-header class="gradient" padding>
+         <p class="text-white">Découvre les meilleures points d'intérêts du moment !</p>
+        </ion-list-header>
+
+        <ion-item *ngFor="let poi of pois | slice:0:10" (click)="onSelect(poi)">
+          <ion-avatar slot="start">
+            <img src="{{poi.photos[0]}}" alt="Photo du POI">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{poi.title}}</h2>
+            <p class="italic">posté par <span class="blue">{{poi.postedByUsername[0].username}}</span></p>
+            <p>{{poi.description | slice:0:64}}{{ poi.description.length > 64 ? '...en savoir plus' : '' }} </p>
+          </ion-label>
+          <div *ngIf="poi.averageRating">
+            <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#5173ba"
+              defaultColor="#5173ba" readonly="true" rating="{{poi.averageRating}}" fontSize="14px">
+            </ionic4-star-rating>
+          </div>
+          <div *ngIf="!poi.averageRating">
+              <ion-label>
+              <p>Aucun vote</p>
+            </ion-label>
+            </div>
+        </ion-item>
+
+      </ion-list>
+    </ion-content>
+  </ion-app>
+</body>

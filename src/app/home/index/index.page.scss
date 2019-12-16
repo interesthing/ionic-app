@@ -1,0 +1,22 @@
+.italic {
+    font-style: italic;
+}
+
+.blue {
+    color: #5173ba;
+}
+
+h2 {
+    font-weight: bold;
+    background: -webkit-linear-gradient( #5173ba,#5f1287);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+.gradient  {
+    background-image: linear-gradient(to right,#5173ba,#5f1287);
+}
+
+.text-white {
+    color: white;
+}
