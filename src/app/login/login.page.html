@@ -1,47 +1,69 @@
-<ion-header>
+<!--<ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title>Connexion</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header>-->
 
-<ion-content>
+<ion-content color="primary" padding>
+
+  <ion-grid>
+    <ion-row justify-content-center align-items-center>
+        <ion-col size="3">
+          <img src="assets/img/logo.png" style="height: auto; width: auto" />
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
   <form #loginForm="ngForm" (submit)="onSubmit(loginForm)">
-    <ion-list>
-  
-      <!-- Username input -->
-      <ion-item>
-        <ion-label position="floating">Username</ion-label>
-        <ion-input inputmode="text" #username="ngModel" required="true" name="username"
-          [(ngModel)]="authRequest.username"></ion-input>
-      </ion-item>
-  
-      <!-- Error message displayed if the username is invalid -->
-      <ion-item lines="none" *ngIf="username.invalid && username.touched">
-        <ion-text color='danger'>Username is required.</ion-text>
-      </ion-item>
-  
-      <!-- Password input -->
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
-        <ion-input inputmode="text" #password="ngModel" required="true" type="password" name="password"
-          [(ngModel)]="authRequest.password"></ion-input>
-      </ion-item>
-  
-      <!-- Error message displayed if the password is invalid -->
-      <ion-item lines="none" *ngIf="password.invalid && password.touched">
-        <ion-text color='danger'>Password is required.</ion-text>
-      </ion-item>
-  
-    </ion-list>
-  
-    <div class="ion-padding">
-  
-      <!-- Submit button -->
-      <ion-button type="submit" expand="block" [disabled]="loginForm.invalid">Log in</ion-button>
-  
-      <!-- Error message displayed if the login failed -->
-      <ion-text color='danger' *ngIf="loginError">Username or password is invalid.</ion-text>
-  
-    </div>
+    <ion-grid>
+      <ion-row color="primary" justify-content-center align-items-center>
+        <ion-col size="12">
+          <div text-center>
+            <h2>Connexion</h2>
+          </div>
+          <div padding>
+            <!-- Username input -->
+            <ion-item>
+                <ion-label position="floating">Nom d'utilisateur</ion-label>
+                <ion-input inputmode="text" #username="ngModel" required="true" name="username"
+                  [(ngModel)]="authRequest.username"></ion-input>
+            </ion-item>
+            <!-- Error message displayed if the username is invalid -->
+            <ion-item lines="none" *ngIf="username.invalid && username.touched">
+              <ion-text color='danger'>Nom d'utilisateur requis.</ion-text>
+            </ion-item>
+            <!-- Password input -->
+            <ion-item>
+              <ion-label position="floating">Mot de passe</ion-label>
+              <ion-input inputmode="text" #password="ngModel" required="true" type="password" name="password"
+                [(ngModel)]="authRequest.password"></ion-input>
+            </ion-item>
+            <!-- Error message displayed if the password is invalid -->
+            <ion-item lines="none" *ngIf="password.invalid && password.touched">
+              <ion-text color='danger'>Mot de passe requis</ion-text>
+            </ion-item>
+          </div>
+          <div class="ion-padding">
+              <!-- Submit button -->
+              <div padding>
+                  <ion-button size="large" type="submit" [disabled]="loginForm.invalid" expand="block">Se connecter</ion-button>
+              </div>
+              <!-- Error message displayed if the login failed -->
+              <ion-text color='danger' *ngIf="loginError">Le nom d'utilisateur ou le mot de passe sont invalides.</ion-text>
+            </div>
+
+            <div class="compte"> 
+                <p>Tu n'as pas encore de compte ?</p>
+                <p>Alors <a routerLink='/register'>crée-toi un compte maintenant</a>, nounours !</p>
+            </div>
+        </ion-col>
+
+        <ion-row>
+            
+        </ion-row>
+
+      </ion-row>
+    </ion-grid>
   </form>
+
 </ion-content>

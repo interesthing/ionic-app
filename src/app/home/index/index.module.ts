@@ -10,6 +10,7 @@ import { IndexPage } from './index.page';
 import { StarRatingModule } from 'ionic4-star-rating';
 
 
+
 @NgModule({
   imports: [
     CommonModule,

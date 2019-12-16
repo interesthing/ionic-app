@@ -8,29 +8,34 @@ const routes: Routes = [
     path: '',
     component: HomePage,
     children: [
+      { path: '', redirectTo: 'index', pathMatch: 'full' },
       {
         path: 'index',
-        loadChildren: () => import('./index/index.module').then( m => m.IndexPageModule)
+        loadChildren: () => import('./index/index.module').then(m => m.IndexPageModule)
       },
       {
         path: 'profil',
-        loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule)
+        loadChildren: () => import('./profil/profil.module').then(m => m.ProfilPageModule)
       },
       {
         path: 'map',
-        loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
+        loadChildren: () => import('./map/map.module').then(m => m.MapPageModule)
       },
       {
+        path: 'pois',
+        loadChildren: () => import('./pois/pois.module').then( m => m.PoisPageModule)
+      },    
+      {
         path: 'create-poi',
-        loadChildren: () => import('./create-poi/create-poi.module').then( m => m.CreatePoiPageModule)
+        loadChildren: () => import('./create-poi/create-poi.module').then(m => m.CreatePoiPageModule)
       }
     ]
   }
-  
+
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HomePageRoutingModule {}
+export class HomePageRoutingModule { }
