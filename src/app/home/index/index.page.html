@@ -1,26 +1,28 @@
 <body>
   <ion-app>
-      <ion-header>
-          <ion-toolbar>
-            <ion-title>Accueil</ion-title>
-          </ion-toolbar>
-        </ion-header>
-      <ion-searchbar placeholder="Entrez un terme..."  animated></ion-searchbar>
-  <ion-button (click)="redirectToMap()" color="secondary">
-    À proximité <ion-icon name="navigate"></ion-icon>
-  </ion-button>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Accueil</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="redirectToPoiForm()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
     <ion-content fullscreen>
+        <ion-searchbar placeholder="Entrez un terme..." animated></ion-searchbar>
+        <ion-button class="center" (click)="redirectToMap()" color="secondary">
+          À proximité <ion-icon name="navigate"></ion-icon>
+        </ion-button>
+    
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-fab-button (click)="redirectToPoiForm()">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
       <ion-list>
         <ion-list-header class="gradient" padding>
-         <p class="text-white">Découvre les meilleures points d'intérêts du moment !</p>
+          <p class="text-white">Découvre les meilleurs points d'intérêts du moment !</p>
         </ion-list-header>
 
+        <div *ngIf="pois[0]">
         <ion-item *ngFor="let poi of pois | slice:0:10" (click)="onSelect(poi)">
           <ion-avatar slot="start">
             <img src="{{poi.photos[0]}}" alt="Photo du POI">
@@ -36,11 +38,32 @@
             </ionic4-star-rating>
           </div>
           <div *ngIf="!poi.averageRating">
-              <ion-label>
+            <ion-label>
               <p>Aucun vote</p>
             </ion-label>
-            </div>
+          </div>
         </ion-item>
+      </div>
+      <div *ngIf="!pois[0]">
+
+          <ion-item *ngFor="let i of [].constructor(10)">
+              <ion-avatar slot="start">
+                <ion-skeleton-text animated></ion-skeleton-text>
+              </ion-avatar>
+              <ion-label>
+                <h3>
+                  <ion-skeleton-text animated style="width: 25%"></ion-skeleton-text>
+                </h3>
+                <p>
+                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+                </p>
+                <p>
+                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                </p>
+              </ion-label>
+            </ion-item>
+
+      </div>
 
       </ion-list>
     </ion-content>
