@@ -28,10 +28,13 @@ const routes: Routes = [
       {
         path: 'create-poi',
         loadChildren: () => import('./create-poi/create-poi.module').then(m => m.CreatePoiPageModule)
+      },
+      {
+        path: 'show-poi',
+        loadChildren: () => import('./show-poi/show-poi.module').then( m => m.ShowPoiPageModule)
       }
     ]
   }
-
 ];
 
 @NgModule({

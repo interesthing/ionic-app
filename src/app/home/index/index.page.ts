@@ -29,16 +29,13 @@ export class IndexPage implements OnInit {
   ){}
 
   onSelect(Poi) {
-    console.log(JSON.stringify(Poi));
-    // redirigé la personne sur le bon poi
+    this.router.navigate(['home/show-poi', Poi._id]);
   }
 
   ngOnInit() {
     const url = `${environment.apiUrl}/pois`;
     this.http.get<ListResponse<Poi>>(url).subscribe(result => {
-      this.pois = result.data; 
-      console.log(this.pois);
-      
+      this.pois = result.data;   
     });
   }
 
