@@ -4,25 +4,25 @@
   </ion-toolbar>
 </ion-header>-->
 
-<ion-content color="primary" padding>
+<ion-content class="content" padding>
     <ion-grid>
       <ion-row justify-content-center align-items-center>
           <ion-col size="3">
-            <img src="assets/img/logo.png" style="height: auto; width: auto" />
+            <img class="logo" src="assets/img/logo.png" style="height: auto; width: auto" />
           </ion-col>
       </ion-row>
     </ion-grid>
     <form #registerForm="ngForm" (submit)="register(registerForm)">
         <ion-grid>
-          <ion-row color="primary" justify-content-center align-items-center>
+          <ion-row justify-content-center align-items-center>
             <ion-col size="12">
               <div text-center>
                 <h2>Inscription</h2>
               </div>
               <div padding>
                 <ion-item>
-                  <ion-label position="floating">Nom d'utilisateur</ion-label>
-                  <ion-input [(ngModel)]="username" type="text" minlength="5" maxlength="20" name="username" required></ion-input>
+                    <ion-label position="floating">Nom d'utilisateur</ion-label>
+                    <ion-input [(ngModel)]="username" type="text" minlength="5" maxlength="20" name="username" required></ion-input>
                 </ion-item>
                 <ion-item>
                   <ion-label position="floating">Mot de passe</ion-label>
@@ -39,7 +39,7 @@
               </div>
               <div class="ion-padding">
                   <div padding>
-                      <ion-button size="large" type="submit" expand="block">S'inscrire</ion-button>
+                      <ion-button shape="round" size="large" type="submit" expand="block">S'inscrire</ion-button>
                   </div>
               </div>
               <div class="compte"> 
