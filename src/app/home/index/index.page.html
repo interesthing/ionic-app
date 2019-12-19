@@ -23,12 +23,12 @@
 
         <ion-item *ngFor="let poi of pois | slice:0:10" (click)="onSelect(poi)">
           <ion-avatar slot="start">
-            <img src="{{poi.photos[0]}}" alt="Photo du POI">
+            <img src="{{ poi.photos[0] }}" alt="Photo du POI">
           </ion-avatar>
           <ion-label>
             <h2>{{poi.title}}</h2>
             <p class="italic">posté par <span class="blue">{{poi.postedByUsername[0].username}}</span></p>
-            <p>{{poi.description | slice:0:64}}{{ poi.description.length > 64 ? '...en savoir plus' : '' }} </p>
+            <p>{{poi.description | slice:0:64}}{{poi.description.length > 64 ? '...en savoir plus' : ''}} </p>
           </ion-label>
           <div *ngIf="poi.averageRating">
             <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#5173ba"
