@@ -4,19 +4,19 @@
   </ion-toolbar>
 </ion-header>-->
 
-<ion-content color="primary" padding>
+<ion-content class="content" padding>
 
   <ion-grid>
     <ion-row justify-content-center align-items-center>
         <ion-col size="3">
-          <img src="assets/img/logo.png" style="height: auto; width: auto" />
+          <img class="logo" src="assets/img/logo.png" style="height: auto; width: auto" />
         </ion-col>
     </ion-row>
   </ion-grid>
 
   <form #loginForm="ngForm" (submit)="onSubmit(loginForm)">
     <ion-grid>
-      <ion-row color="primary" justify-content-center align-items-center>
+      <ion-row justify-content-center align-items-center>
         <ion-col size="12">
           <div text-center>
             <h2>Connexion</h2>
@@ -46,7 +46,7 @@
           <div class="ion-padding">
               <!-- Submit button -->
               <div padding>
-                  <ion-button size="large" type="submit" [disabled]="loginForm.invalid" expand="block">Se connecter</ion-button>
+                  <ion-button shape="round" size="large" type="submit" [disabled]="loginForm.invalid" expand="block">Se connecter</ion-button>
               </div>
               <!-- Error message displayed if the login failed -->
               <ion-text color='danger' *ngIf="loginError">Le nom d'utilisateur ou le mot de passe sont invalides.</ion-text>
@@ -54,7 +54,7 @@
 
             <div class="compte"> 
                 <p>Tu n'as pas encore de compte ?</p>
-                <p>Alors <a routerLink='/register'>crée-toi un compte maintenant</a>, nounours !</p>
+                <p>Alors <a routerLink='/register'>crée-toi un compte maintenant</a> !</p>
             </div>
         </ion-col>
 
