@@ -2,26 +2,63 @@
   <ion-app>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Accueil</ion-title>
+        <ion-title>Interesthing</ion-title>
       </ion-toolbar>
     </ion-header>
-
     <ion-content fullscreen>
-        <ion-searchbar placeholder="Entrez un terme..." animated></ion-searchbar>
-        <ion-button class="center" (click)="redirectToMap()" color="secondary">
-          À proximité <ion-icon name="navigate"></ion-icon>
-        </ion-button>
-    
-        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-          <ion-fab-button (click)="redirectToPoiForm()">
-            <ion-icon name="add"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>
+      <div class="container">
+        <div class="search-bars">
+          <ion-searchbar placeholder="Entrez un terme..." animated></ion-searchbar>
+          <ion-button class="center" (click)="redirectToMap()" color="secondary">
+            À proximité <ion-icon name="navigate"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="redirectToPoiForm()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+      <ion-grid padding>
+        <ion-row>
+          <ion-col>
+            <div class="filter">
+              <ion-icon name="color-palette"></ion-icon>
+              <p>Art</p>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="filter">
+              <ion-icon name="outlet"></ion-icon>
+              <p>WTF</p>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="filter">
+              <ion-icon name="bonfire"></ion-icon>
+              <p>Spots</p>
+            </div>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="filter">
+                <ion-icon name="happy"></ion-icon>
+                <p>Funny</p>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div class="filter">
+                <ion-icon name="pin"></ion-icon>
+                <p>Shortcuts</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       <ion-list>
         <ion-list-header class="gradient" padding>
           <p class="text-white">Découvre les meilleurs points d'intérêts du moment !</p>
         </ion-list-header>
-
         <div *ngIf="pois[0]">
         <ion-item *ngFor="let poi of pois | slice:0:10" (click)="onSelect(poi)">
           <ion-avatar slot="start">
@@ -45,26 +82,23 @@
         </ion-item>
       </div>
       <div *ngIf="!pois[0]">
-
-          <ion-item *ngFor="let i of [].constructor(10)">
-              <ion-avatar slot="start">
-                <ion-skeleton-text animated></ion-skeleton-text>
-              </ion-avatar>
-              <ion-label>
-                <h3>
-                  <ion-skeleton-text animated style="width: 25%"></ion-skeleton-text>
-                </h3>
-                <p>
-                  <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
-                </p>
-                <p>
-                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                </p>
-              </ion-label>
-            </ion-item>
-
+        <ion-item *ngFor="let i of [].constructor(10)">
+          <ion-avatar slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 25%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
       </div>
-
       </ion-list>
     </ion-content>
   </ion-app>

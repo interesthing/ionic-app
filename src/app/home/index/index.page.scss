@@ -8,6 +8,49 @@ ion-title {
     text-align: center;
 }
 
+ion-avatar  {     
+    width:100px !important;
+    height: 100px !important;
+}
+
+ion-grid {
+    text-align: center;
+}
+
+ion-grid ion-icon {
+    font-size: 28px;
+    color: rgb(95,18,135);
+}
+
+.container .search-bars ion-button {
+    padding: 0;
+}
+
+.container .search-bars ion-searchbar {
+    padding: 0 0 10px 0;
+}
+
+.container {
+    background:url(src/assets/img/index.jpg) no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+
+.search-bars {
+    position: relative;
+    top: 25%;
+    padding: 10px;
+}
+
+.filter {
+    border: 1px solid #ccc;
+    padding: 10px 0 1px 0;
+}
+
+.filter p {
+    font-weight: bold;
+}
+
 .italic {
     font-style: italic;
 }
