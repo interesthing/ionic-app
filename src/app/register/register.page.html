@@ -5,6 +5,42 @@
 </ion-header>-->
 
 <ion-content class="content" padding>
+
+  <!-- SNOW -->
+  <div class="snowflakes" aria-hidden="true">
+    <div class="snowflake">
+    ❅
+    </div>
+    <div class="snowflake">
+    ❅
+    </div>
+    <div class="snowflake">
+    ❆
+    </div>
+    <div class="snowflake">
+    ❄
+    </div>
+    <div class="snowflake">
+    ❅
+    </div>
+    <div class="snowflake">
+    ❆
+    </div>
+    <div class="snowflake">
+    ❄
+    </div>
+    <div class="snowflake">
+    ❅
+    </div>
+    <div class="snowflake">
+    ❆
+    </div>
+    <div class="snowflake">
+    ❄
+    </div>
+  </div>
+  <!-- END SNOW -->
+
     <ion-grid>
       <ion-row justify-content-center align-items-center>
           <ion-col size="3">
@@ -14,7 +50,7 @@
     </ion-grid>
     <form #registerForm="ngForm" (submit)="register(registerForm)">
         <ion-grid>
-          <ion-row justify-content-center align-items-center>
+          <ion-row class="block" justify-content-center align-items-center>
             <ion-col size="12">
               <div text-center>
                 <h2>Inscription</h2>
@@ -22,15 +58,15 @@
               <div padding>
                 <ion-item>
                     <ion-label position="floating">Nom d'utilisateur</ion-label>
-                    <ion-input [(ngModel)]="username" type="text" minlength="5" maxlength="20" name="username" required></ion-input>
+                    <ion-input [(ngModel)]="username" pattern="^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$" type="text" minlength="5" maxlength="20" name="username" required></ion-input>
                 </ion-item>
                 <ion-item>
                   <ion-label position="floating">Mot de passe</ion-label>
-                  <ion-input [(ngModel)]="password" name="password" type="text" required type="password" name="password"></ion-input>
+                  <ion-input [(ngModel)]="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="password" type="password" name="password" required></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-label position="floating">Adresse e-mail</ion-label>
-                    <ion-input [(ngModel)]="email" name="email" type="text" required name="email"></ion-input>
+                    <ion-input [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" type="email" name="email" required></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-label position="floating">Photo profil</ion-label>
@@ -39,7 +75,7 @@
               </div>
               <div class="ion-padding">
                   <div padding>
-                      <ion-button shape="round" size="large" type="submit" expand="block">S'inscrire</ion-button>
+                      <ion-button (click)="registerAlert()" shape="round" size="large" type="submit" expand="block" [disabled]="registerForm.invalid">S'inscrire</ion-button>
                   </div>
               </div>
               <div class="compte"> 
