@@ -1,5 +1,12 @@
-img {
-	width: 100% !important;
+ion-toolbar {
+    --background: rgb(95,18,135);
+    --background: linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
+}
+.return {
+    color: #fff !important;
+    font-size: 22px;
+    position: relative;
+    
 }
 
 #number-rate {
@@ -16,5 +23,6 @@ img {
 
 hr {
 	border-bottom: 1px solid  #5173ba;
-	margin-top: 1.1crem;
- }
+	margin-top: 1.1rem;
+}
+
