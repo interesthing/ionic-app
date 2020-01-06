@@ -13,23 +13,39 @@
       </ion-slide>
     </ion-slides>
     <ion-card-header>
-      <ion-card-subtitle>Categorie > {{ poi.categorie }}</ion-card-subtitle>
-      <ion-card-title>{{ poi.title }}</ion-card-title>
-      <ion-buttons>
-        <button ion-button>Laisser un avis<ion-icon name="create"></ion-icon></button>
-      </ion-buttons>
-      <!--<p><ion-icon name="create"></ion-icon> Rédige un avis</p>-->
-      <div *ngIf="poi.ratingPoi">
-        <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#5173ba"
-          defaultColor="#5173ba" readonly="true" rating="{{ poi.ratingPoi }}" fontSize="14px">
-        </ionic4-star-rating>
-        <p id="number-rate">{{ poi.totalRating }} avis</p>
-      </div>
-      <div *ngIf="!poi.ratingPoi">
-        <ion-label>
-          <p>Aucun vote</p>
-        </ion-label>
-      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card-subtitle>Categorie > {{ poi.categorie }}</ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <ion-card-title>{{ poi.title }}</ion-card-title>
+          </ion-col>
+          <ion-col size="5">
+            <ion-buttons>
+              <button>Laisser un avis <ion-icon name="create"></ion-icon></button>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div *ngIf="poi.ratingPoi">
+              <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#5173ba"
+                defaultColor="#5173ba" readonly="true" rating="{{ poi.ratingPoi }}" fontSize="14px">
+              </ionic4-star-rating>
+              <p id="number-rate">{{ poi.totalRating }} avis</p>
+            </div>
+            <div *ngIf="!poi.ratingPoi">
+              <ion-label>
+                <p>Aucun vote</p>
+              </ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
       <hr>
     </ion-card-header>
     <ion-card-content>
