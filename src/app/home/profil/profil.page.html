@@ -1,8 +1,6 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Mon compte</ion-title>
-
-    <!-- Logout button -->
     <ion-buttons slot="end">
       <ion-button (click)="logOut()">
         <ion-icon class="logout-button" name='log-out'></ion-icon>
@@ -10,3 +8,27 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <div class="header">
+    <h2>Username</h2>
+    <div class="space-between">
+      <div padding class="bubble">
+        <ion-badge color="primary" mode="ios">12</ion-badge>
+        <p>Avis</p>
+      </div>
+      <div padding class="bubble">
+        <ion-badge color="primary" mode="ios">8</ion-badge>
+        <p>Posts</p>
+      </div>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="box-border">
+      <div class="border-white">
+        <div class="img-box">
+          <img width="130px" height="130px" src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

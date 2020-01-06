@@ -61,11 +61,14 @@ ion-grid ion-icon {
 
 h2 {
     font-weight: bold;
-    --background: rgb(95,18,135);
+    background: -webkit-linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*--background: rgb(95,18,135);
     --background: linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
     /*background: -webkit-linear-gradient( #5173ba,#5f1287);
-    -webkit-background-clip: text;*/
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
   }
 
 .gradient  {
