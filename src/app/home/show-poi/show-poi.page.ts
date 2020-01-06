@@ -5,6 +5,9 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/auth/auth.service';
 import {Location} from '@angular/common';
+import { StarRating } from 'ionic4-star-rating';
+import { Rating } from 'src/app/models/rating';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-show-poi',
@@ -14,9 +17,9 @@ import {Location} from '@angular/common';
 export class ShowPoiPage implements OnInit {
 
   id: number;
-  private sub: any;
   poi: Poi;
-
+  rating: Rating[];
+  listOpen = false;
 
   constructor(
     private auth: AuthService,
@@ -30,14 +33,27 @@ export class ShowPoiPage implements OnInit {
     }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
+    this.route.params.subscribe(params => {
       this.id = params['id'];
     });
-    const url = `${environment.apiUrl}/pois/${this.id}`;
-    this.http.get<Poi[]>(url).subscribe(result => {
+    const urlPoi = `${environment.apiUrl}/pois/${this.id}`;
+    const urlRating = `${environment.apiUrl}/ratings/?poi=${this.id}`;
+
+    this.http.get<Poi[]>(urlPoi).subscribe(result => {
       this.poi = result[0];  
-      console.log(this.poi)
     });
+    this.http.get<Rating[]>(urlRating).subscribe(result => {
+      this.rating = result; 
+      console.log(this.rating)
+      this.rating.forEach(rating => {
+        let urlUser = `${environment.apiUrl}/users/${rating.postedBy}`; 
+        this.http.get<User>(urlUser).subscribe(user => {
+          rating.user = user;
+          console.log(rating)
+        })
+      })
+    });
+    
 }
 
 }

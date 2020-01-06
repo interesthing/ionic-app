@@ -1,3 +1,5 @@
+import { User } from './user';
+
 export class Rating {
     _id: string;
     postedBy: string;
@@ -5,5 +7,5 @@ export class Rating {
     value: number;
     comment: string;
     dateAdd: string;
-    __v: number;
-  }
+    user?: User;
+}

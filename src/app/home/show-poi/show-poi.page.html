@@ -7,58 +7,68 @@
 </ion-header>
 <ion-content *ngIf="poi">
   <ion-card *ngIf="poi">
-      <ion-slides pager="true">
-          <ion-slide *ngFor="let img of poi.photos">
-            <img src="{{ img }}"/>
-          </ion-slide>
-      </ion-slides>
-      <ion-card-header>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <ion-card-subtitle>Categorie > {{ poi.categorie }}</ion-card-subtitle>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col size="6">
-              <ion-card-title>{{ poi.title }}</ion-card-title>
-            </ion-col>
-            <ion-col size="5">
-              <ion-buttons>
-                <button>Laisser un avis <ion-icon name="create"></ion-icon></button>
-              </ion-buttons>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <!--<p><ion-icon name="create"></ion-icon> Rédige un avis</p>-->
-              <div *ngIf="poi.ratingPoi">
-                <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#5173ba"
-                  defaultColor="#5173ba" readonly="true" rating="{{ poi.ratingPoi }}" fontSize="14px">
-                </ionic4-star-rating>
-                <p id="number-rate">{{ poi.totalRating }} avis</p>
-              </div>
-              <div *ngIf="!poi.ratingPoi">
-                <ion-label>
-                  <p>Aucun vote</p>
-                </ion-label>
-              </div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-        <hr>
-      </ion-card-header>
-      <!--<ion-card-content>
-          <p>{{ poi.description }}</p>
-        <hr>
-        <ion-item lines="none">
-          <ion-avatar slot="start" class="ion-margin-top">
-            <img src="{{ poi.imgProfil }}" alt="Photo de l'utilisateur">
-          </ion-avatar>
-          <ion-label>
-            <p class="italic">posté par <span class="blue">{{ poi.postedBy }}</span></p>
-            <p>{{ poi.dateAdd }}</p>
-          </ion-label>
-      </ion-card-content>-->
-    </ion-card>
+    <ion-slides pager="true">
+      <ion-slide *ngFor="let img of poi.photos">
+        <img src="{{ img }}" />
+      </ion-slide>
+    </ion-slides>
+    <ion-card-header>
+      <ion-card-subtitle>Categorie > {{ poi.categorie }}</ion-card-subtitle>
+      <ion-card-title>{{ poi.title }}</ion-card-title>
+      <ion-buttons>
+        <button ion-button>Laisser un avis<ion-icon name="create"></ion-icon></button>
+      </ion-buttons>
+      <!--<p><ion-icon name="create"></ion-icon> Rédige un avis</p>-->
+      <div *ngIf="poi.ratingPoi">
+        <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#5173ba"
+          defaultColor="#5173ba" readonly="true" rating="{{ poi.ratingPoi }}" fontSize="14px">
+        </ionic4-star-rating>
+        <p id="number-rate">{{ poi.totalRating }} avis</p>
+      </div>
+      <div *ngIf="!poi.ratingPoi">
+        <ion-label>
+          <p>Aucun vote</p>
+        </ion-label>
+      </div>
+      <hr>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ poi.description }}</p>
+      <hr>
+      <ion-item lines="none">
+        <ion-avatar slot="start" class="ion-margin-top">
+          <img src="{{ poi.postedByUsername[0].imgProfil }}" alt="Photo de l'utilisateur">
+        </ion-avatar>
+        <ion-label>
+          <p class="italic">posté par <span class="blue">{{ poi.postedByUsername[0].username }}</span></p>
+          <p>{{ poi.dateAdd | date: 'dd/MM/yyyy' }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header (click)="listOpen = !listOpen">
+      <ion-card-title>
+        Avis
+        <ion-icon name="arrow-dropdown" class="arrow" *ngIf="!listOpen"></ion-icon>
+        <ion-icon name="arrow-dropup" class="arrow" *ngIf="listOpen"></ion-icon>
+      </ion-card-title>
+    </ion-card-header>
+    <div *ngIf="rating && listOpen">
+      <ion-item *ngFor="let rate of rating">
+        <ion-label>
+          <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#5173ba"
+            defaultColor="#5173ba" readonly="true" rating="{{ rate.value }}" fontSize="14px">
+          </ionic4-star-rating>
+          <p>{{ rate.comment }}</p>
+          <p class="italic">posté par <span class="blue">{{ rate.user?.username }}</span></p>
+        </ion-label>
+      </ion-item>
+    </div>
+    <div *ngIf="!rating && listOpen">
+      <ion-item>
+        <p>Aucun avis</p>
+      </ion-item>
+    </div>
+  </ion-card>
 </ion-content>
