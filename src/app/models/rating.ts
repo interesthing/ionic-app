@@ -1,7 +1,6 @@
 import { User } from './user';
 
 export class Rating {
-
     _id: string;
     postedBy: string;
     poi: string;
@@ -10,4 +9,3 @@ export class Rating {
     dateAdd: string;
     user?: User;
 }
-
