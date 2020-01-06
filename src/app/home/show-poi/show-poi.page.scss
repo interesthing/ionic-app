@@ -2,11 +2,21 @@ ion-toolbar {
     --background: rgb(95,18,135);
     --background: linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
 }
+
+ion-buttons button {
+    font-size: 14px;
+    padding: 10px 10px 13px 10px;
+    position: relative;
+    top: -20px;
+    left: 40px;
+    background: linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
+    color: #fff;
+}
+
 .return {
     color: #fff !important;
     font-size: 22px;
     position: relative;
-    
 }
 
 #number-rate {
