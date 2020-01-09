@@ -8,6 +8,7 @@ import { MapPageRoutingModule } from './map-routing.module';
 
 import { MapPage } from './map.page';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { StarRatingModule } from 'ionic4-star-rating';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     FormsModule,
     IonicModule,
     MapPageRoutingModule,
-    LeafletModule
+    LeafletModule,
+    StarRatingModule,
   ],
   declarations: [MapPage]
 })

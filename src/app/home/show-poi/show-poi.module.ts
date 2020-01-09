@@ -8,6 +8,7 @@ import { ShowPoiPageRoutingModule } from './show-poi-routing.module';
 
 import { ShowPoiPage } from './show-poi.page';
 import { StarRatingModule } from 'ionic4-star-rating';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { StarRatingModule } from 'ionic4-star-rating';
     FormsModule,
     IonicModule,
     StarRatingModule,
+    LeafletModule,
     ShowPoiPageRoutingModule
   ],
   declarations: [ShowPoiPage]
