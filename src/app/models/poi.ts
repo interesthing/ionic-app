@@ -1,6 +1,7 @@
 export class Poi {
+
+    _id : string;
     photos: string[];
-    _id: string;
     postedBy: string;
     pos: {
         coordinates: number[];
