@@ -62,6 +62,14 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
+  <ion-content class="map">
+    <div class="map-content"
+    leaflet
+    [leafletOptions]="mapOptions"
+    [leafletLayers]="mapMarkers"
+    (leafletMapReady)="onMapReady($event)">
+    </div>
+  </ion-content>
   <ion-card>
     <ion-card-header (click)="listOpen = !listOpen">
       <ion-card-title>
@@ -81,10 +89,8 @@
         </ion-label>
       </ion-item>
     </div>
-    <div *ngIf="!rating && listOpen">
-      <ion-item>
+      <ion-item *ngIf="rating?.length === 0 && listOpen">
         <p>Aucun avis</p>
       </ion-item>
-    </div>
   </ion-card>
 </ion-content>
