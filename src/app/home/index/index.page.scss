@@ -1,0 +1,90 @@
+ion-toolbar {
+    --background: rgb(95,18,135);
+    --background: linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
+}
+
+ion-title {
+    --color: #fff;
+    text-align: center;
+}
+
+ion-avatar  {     
+    width:100px !important;
+    height: 100px !important;
+}
+
+ion-grid {
+    text-align: center;
+}
+
+ion-grid ion-icon {
+    font-size: 28px;
+    color: rgb(95,18,135);
+}
+
+.container .search-bars ion-button {
+    padding: 0;
+}
+
+.container .search-bars ion-searchbar {
+    padding: 0 0 10px 0;
+}
+
+.container {
+    background:url(src/assets/img/index.jpg) no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+
+.search-bars {
+    position: relative;
+    top: 25%;
+    padding: 10px;
+}
+
+.filter {
+    border: 1px solid #ccc;
+    padding: 10px 0 1px 0;
+}
+
+.filter p {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.blue {
+    color: #5173ba;
+}
+
+h2 {
+    font-weight: bold;
+    background: -webkit-linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*--background: rgb(95,18,135);
+    --background: linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
+    /*background: -webkit-linear-gradient( #5173ba,#5f1287);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
+  }
+
+.gradient  {
+    /*background-image: linear-gradient(to right,#5173ba,#5f1287);*/
+    --background: rgb(95,18,135);
+    --background: linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
+}
+
+.text-white {
+    color: white;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}

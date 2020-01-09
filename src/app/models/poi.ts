@@ -1,4 +1,5 @@
 export class Poi {
+
     _id : string;
     photos: string[];
     postedBy: string;

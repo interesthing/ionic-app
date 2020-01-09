@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { IndexPageRoutingModule } from './index-routing.module';
 
 import { IndexPage } from './index.page';
+import { StarRatingModule } from 'ionic4-star-rating';
+
 
 @NgModule({
   imports: [
@@ -14,6 +16,8 @@ import { IndexPage } from './index.page';
     FormsModule,
     IonicModule,
     IndexPageRoutingModule,
+    StarRatingModule,
+    IndexPageRoutingModule
   ],
   declarations: [IndexPage]
 })
