@@ -67,7 +67,8 @@
           <ion-label>
             <h2>{{poi.title}}</h2>
             <p class="italic">posté par <span class="blue">{{poi.postedByUsername[0].username}}</span></p>
-            <p>{{poi.description | slice:0:64}}{{poi.description.length > 64 ? '...en savoir plus' : ''}} </p>
+            <p><ion-icon name="filing"></ion-icon> {{poi.categorie}} </p>
+            <p *ngIf="poi.city" class="purple"><ion-icon name="pin"></ion-icon> {{poi.city}}</p>
           </ion-label>
           <div *ngIf="poi.averageRating">
             <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#5173ba"

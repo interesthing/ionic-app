@@ -60,6 +60,8 @@
           <p>{{ poi.dateAdd | date: 'dd/MM/yyyy' }}</p>
         </ion-label>
       </ion-item>
+      <hr>
+        <p><ion-icon name="pin"></ion-icon> {{poi.city}}</p>
     </ion-card-content>
   </ion-card>
   <ion-content class="map">
@@ -85,7 +87,7 @@
             defaultColor="#5173ba" readonly="true" rating="{{ rate.value }}" fontSize="14px">
           </ionic4-star-rating>
           <p>{{ rate.comment }}</p>
-          <p class="italic">posté par <span class="blue">{{ rate.user?.username }}</span></p>
+          <p class="italic">posté par <span class="blue">{{ rate.user?.username }}</span>, le {{ rate.dateAdd | date: 'dd/MM/yyyy' }}</p>
         </ion-label>
       </ion-item>
     </div>

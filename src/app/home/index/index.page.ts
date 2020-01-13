@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 export class IndexPage implements OnInit {
 
   pois: Array<Poi> = [];
+  city: string;
 
   constructor(
     private auth: AuthService,
@@ -35,7 +36,15 @@ export class IndexPage implements OnInit {
   ngOnInit() {
     const url = `${environment.apiUrl}/pois`;
     this.http.get<ListResponse<Poi>>(url).subscribe(result => {
-      this.pois = result.data;   
+      this.pois = result.data;
+      this.pois.forEach(poi =>
+        this.http
+          .get(`${environment.geocodeApi}/geocode/v1/json?q=${poi.pos.coordinates[0]}+${poi.pos.coordinates[1]}&key=5089bd06f21940b4a2978b98ee653f58`)
+          .subscribe((address: any) => {
+           this.city = address.results[0].components.city_district;
+           poi.city = this.city;
+          })
+      );
     });
   }
 
