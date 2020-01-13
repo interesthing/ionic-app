@@ -5,13 +5,14 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <p>Coordonées : Les coordonnées du point que vous allez ajouter seront vos coordonnées actuelles.</p>
+
+  <p><ion-icon name="information-circle"></ion-icon> : Le POI prendra vos coordonnées actuelles, veillez donc bien à être sur place. :')</p>
 
   <form #uploadPoiForm="ngForm" (submit)="upload(uploadPoiForm)">
     
     <ion-label>Titre</ion-label>
     <ion-input [(ngModel)]="poiData.title" type="text" placeholder="Titre" name="title" required></ion-input>
-    <ion-label>Description min5 max300</ion-label>
+    <ion-label>Description (Min: 5, Max: 300)</ion-label>
     <ion-input [(ngModel)]="poiData.description" type="text" placeholder="Description" name="desc" required></ion-input>
 
     <ion-list>
@@ -26,10 +27,12 @@
         </ion-select>
       </ion-item>
     </ion-list>
-
-    <ion-label>Ajouter une photo :</ion-label>
-    Votre image :
     
+    <ion-fab-button (click)="takePicture()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+
+    <!--
     <ion-fab>     
       <ion-fab-button>
           <ion-icon name="add"></ion-icon>
@@ -51,14 +54,16 @@
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
+  -->
 
   <!-- <img *ngIf="pictureData" src="data:image/jpeg;base64,{{ pictureData }}" /> -->
+
+  <h2 *ngIf='picture'>Votre image :</h2>
   <img *ngIf='picture' [src]='picture.url' />
 
-    <ion-button type="submit">Ajouter</ion-button>
+
+    <ion-button type="submit">Ajouter le POI</ion-button>
   </form>
-
-
 
   <!-- POST /api/pois HTTP/1.1
   Content-Type: application/json
