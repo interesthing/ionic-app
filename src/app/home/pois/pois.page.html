@@ -5,5 +5,69 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          <ion-avatar>
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+          <ion-row>
+            <p style="font-weight: bold; font-size: 18px; margin: 0;">Drôle d'endroit</p>
+          </ion-row>
+          <ion-row>
+            <p>Ici nous avons la description</p>
+          </ion-row>
+          <ion-row>
+          </ion-row>
+        </ion-col>
+        <ion-col size="2">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <!-- <ion-list>
+    <div *ngIf="pois[0]">
+    <ion-item *ngFor="let poi of pois | slice:0:10" (click)="onSelect(poi)">
+      <ion-avatar slot="start">
+        <img src="{{ poi.photos[0] }}" alt="Photo du POI">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ poi.title }}</h2>
+        <p class="italic">posté par <span class="blue">{{ poi.postedByUsername[0].username }}</span></p>
+        <p>{{ poi.description | slice:0:64 }} {{ poi.description.length > 64 ? '...en savoir plus' : '' }} </p>
+      </ion-label>
+      <div *ngIf="poi.averageRating">
+        <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#5173ba"
+          defaultColor="#5173ba" readonly="true" rating="{{poi.averageRating}}" fontSize="14px">
+        </ionic4-star-rating>
+      </div>
+      <div *ngIf="!poi.averageRating">
+        <ion-label>
+          <p>Aucun vote</p>
+        </ion-label>
+      </div>
+    </ion-item>
+  </div>
+  <div *ngIf="!pois[0]">
+    <ion-item *ngFor="let i of [].constructor(10)">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 25%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </div>
+  </ion-list> -->
 </ion-content>
