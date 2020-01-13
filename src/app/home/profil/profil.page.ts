@@ -31,7 +31,7 @@ export class ProfilPage implements OnInit {
     const url_pois = `${environment.apiUrl}/pois`;
 
     this.http.get<ListResponse<Poi>>(url_pois).subscribe(result => {
-      this.ratings = 
+      //this.ratings =
       this.userId = this.auth.getUser()["source"]["source"]["_events"][0].user._id;
       this.pois = result.data.filter(poi => poi.postedBy == this.userId)
     });
