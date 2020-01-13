@@ -15,8 +15,12 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { AuthInterceptorProvider } from './auth/auth-interceptor.service';
 
+
+import { Camera } from '@ionic-native/camera/ngx';
+
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +34,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     LeafletModule.forRoot()
   ],
   providers: [
+    Camera,
     StatusBar,
     SplashScreen,
     Geolocation,

@@ -8,12 +8,17 @@ import { CreatePoiPageRoutingModule } from './create-poi-routing.module';
 
 import { CreatePoiPage } from './create-poi.page';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx';  
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     CreatePoiPageRoutingModule
+  ],
+  providers:[
+    Geolocation
   ],
   declarations: [CreatePoiPage]
 })

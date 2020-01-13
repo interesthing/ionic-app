@@ -16,7 +16,7 @@ ion-buttons button {
 .return {
     color: #fff !important;
     font-size: 22px;
-    position: relative;
+    float: left;
 }
 
 #number-rate {
@@ -40,4 +40,12 @@ hr {
     font-size: 1.7rem;
     float: right;
  }
+
+ .map {
+    height: 20rem;
+}
+
+.map-content {
+    height: 100%;
+}
 
