@@ -15,6 +15,7 @@ import { Map, latLng, marker, Marker, MapOptions, tileLayer } from 'leaflet';
 import { defaultIcon } from 'src/icon/defaultIcon';
 
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -42,6 +43,7 @@ export class ShowPoiPage implements OnInit {
     private auth: AuthService,
     private route: ActivatedRoute,
     public http: HttpClient,
+    private router: Router,
     private location: Location,
     private geolocation: Geolocation,
     public alertController: AlertController
@@ -102,6 +104,11 @@ export class ShowPoiPage implements OnInit {
     });
   }
 
+  // onSelect() {
+  //   const userId = this.auth.getUser()["source"]["source"]["_events"][0].user._id;
+  //   this.router.navigate(['home/profil', userId]);
+  // }
+  
   async ratePrompt() {
     const alert = await this.alertController.create({
       header: 'Laisser un avis',
@@ -150,5 +157,5 @@ export class ShowPoiPage implements OnInit {
     });
     await alert.present();
   }
-  
+
 }

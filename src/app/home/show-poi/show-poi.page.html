@@ -85,7 +85,7 @@
             defaultColor="#5173ba" readonly="true" rating="{{ rate.value }}" fontSize="14px">
           </ionic4-star-rating>
           <p>{{ rate.comment }}</p>
-          <p class="italic">posté par <span class="blue">{{ rate.user?.username }}</span></p>
+          <p class="italic">posté par <span (click)="onSelect(user)" class="blue">{{ rate.user?.username }}</span></p>
         </ion-label>
       </ion-item>
     </div>
