@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PoisPageRoutingModule } from './pois-routing.module';
 
 import { PoisPage } from './pois.page';
+import { StarRatingModule } from 'ionic4-star-rating';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PoisPageRoutingModule
+    PoisPageRoutingModule,
+    StarRatingModule
   ],
   declarations: [PoisPage]
 })

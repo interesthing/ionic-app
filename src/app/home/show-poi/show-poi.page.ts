@@ -31,6 +31,7 @@ export class ShowPoiPage implements OnInit {
   poi: Poi;
   rating: Rating[];
   listOpen = false;
+  city: string;
 
   // rating data
   value: number;
@@ -85,20 +86,26 @@ export class ShowPoiPage implements OnInit {
 
     this.http.get<Poi[]>(urlPoi).subscribe(result => {
       this.poi = result[0];
+
+      this.http
+      .get(`${environment.geocodeApi}/geocode/v1/json?q=${this.poi.pos.coordinates[0]}+${this.poi.pos.coordinates[1]}&key=5089bd06f21940b4a2978b98ee653f58`)
+      .subscribe((address: any) => {
+       this.city = address.results[0].formatted;
+       this.poi.city = this.city;
+
+      })
+
       this.mapMarkers = [
         marker([this.poi.pos.coordinates[0], this.poi.pos.coordinates[1]], { icon: defaultIcon }),
       ];
       this.mapOptions.center = latLng(this.poi.pos.coordinates[0], this.poi.pos.coordinates[1]);
-      console.log(this.mapOptions)
     });
     this.http.get<Rating[]>(urlRating).subscribe(result => {
       this.rating = result;
-      console.log(this.rating)
       this.rating.forEach(rating => {
         let urlUser = `${environment.apiUrl}/users/${rating.postedBy}`;
         this.http.get<User>(urlUser).subscribe(user => {
           rating.user = user;
-          console.log(rating)
         })
       })
     });
