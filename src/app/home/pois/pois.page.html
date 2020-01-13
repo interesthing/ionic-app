@@ -1,43 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Pois</ion-title>
+    <ion-title>
+      <ion-icon (click)="backClicked()" class="return" name="arrow-round-back" start></ion-icon>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3">
-          <ion-avatar>
-            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-          </ion-avatar>
-        </ion-col>
-        <ion-col>
-          <ion-row>
-            <p style="font-weight: bold; font-size: 18px; margin: 0;">Drôle d'endroit</p>
-          </ion-row>
-          <ion-row>
-            <p>Ici nous avons la description</p>
-          </ion-row>
-          <ion-row>
-          </ion-row>
-        </ion-col>
-        <ion-col size="2">
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <!-- <ion-list>
-    <div *ngIf="pois[0]">
-    <ion-item *ngFor="let poi of pois | slice:0:10" (click)="onSelect(poi)">
+  <div *ngIf="pois">
+    <ion-item *ngFor="let poi of pois" (click)="onSelect(poi)">
       <ion-avatar slot="start">
         <img src="{{ poi.photos[0] }}" alt="Photo du POI">
       </ion-avatar>
       <ion-label>
-        <h2>{{ poi.title }}</h2>
-        <p class="italic">posté par <span class="blue">{{ poi.postedByUsername[0].username }}</span></p>
-        <p>{{ poi.description | slice:0:64 }} {{ poi.description.length > 64 ? '...en savoir plus' : '' }} </p>
+        <h2>{{poi.title}}</h2>
+        <p class="italic">posté par <span class="blue">{{poi.postedByUsername[0].username}}</span></p>
+        <p><ion-icon name="filing"></ion-icon> {{poi.categorie}} </p>
+        <p *ngIf="poi.city" class="purple"><ion-icon name="pin"></ion-icon> {{poi.city}}</p>
       </ion-label>
       <div *ngIf="poi.averageRating">
         <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#5173ba"
@@ -51,7 +30,7 @@
       </div>
     </ion-item>
   </div>
-  <div *ngIf="!pois[0]">
+  <div *ngIf="!pois">
     <ion-item *ngFor="let i of [].constructor(10)">
       <ion-avatar slot="start">
         <ion-skeleton-text animated></ion-skeleton-text>
@@ -69,5 +48,63 @@
       </ion-label>
     </ion-item>
   </div>
-  </ion-list> -->
+  <ion-item *ngIf="pois && pois.length === 0">
+    Aucun résultat
+  </ion-item>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-button id="filter-button">Filtrer <ion-icon name="switch"></ion-icon></ion-button>
+    <ion-fab-list side="top">
+        <ion-button (click)="reset()" class="filter" color="danger">Reset <ion-icon name="refresh"></ion-icon></ion-button>
+      <ion-item class="filter" color="primary">
+        <ion-label>Avis <ion-icon name="star"></ion-icon></ion-label>
+        <ion-select (ionChange)="filterRating($event)" cancel-text="Annuler">
+          <ion-select-option value="5">
+            &#9733;
+            &#9733;
+            &#9733;
+            &#9733;
+            &#9733;
+          </ion-select-option>
+          <ion-select-option value="4">
+            &#9733;
+            &#9733;
+            &#9733;
+            &#9733;
+          </ion-select-option>
+          <ion-select-option value="3">
+            &#9733;
+            &#9733;
+            &#9733;
+          </ion-select-option>
+          <ion-select-option value="2">
+            &#9733;
+            &#9733;
+          </ion-select-option>
+          <ion-select-option value="1">
+            &#9733;
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="filter" color="primary">
+        <ion-label>Categories <ion-icon name="filing"></ion-icon></ion-label>
+        <ion-select (ionChange)="filterCategory($event)" cancel-text="Annuler">
+          <ion-select-option value="Art">
+            Art
+          </ion-select-option>
+          <ion-select-option value="WTF!">
+            WTF!
+          </ion-select-option>
+          <ion-select-option value="Spots">
+            Spots
+          </ion-select-option>
+          <ion-select-option value="Funny">
+            Funny
+          </ion-select-option>
+          <ion-select-option value="Shortcuts">
+            Shortcuts
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

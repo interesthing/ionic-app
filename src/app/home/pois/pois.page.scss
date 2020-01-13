@@ -7,3 +7,33 @@ ion-title {
     --color: #fff;
     text-align: center;
 }
+
+.return {
+    color: #fff !important;
+    font-size: 22px;
+    float: left;
+}
+
+.filter {
+    margin-left: -3rem;
+    margin-bottom: 1rem;
+    color: white;
+    border-radius: 0.5rem;
+}
+
+#filter-button {
+    --background: linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
+    margin-left: -1rem;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.blue {
+    color: #5173ba;
+}
+
+.purple {
+    color: rgb(95,18,135);
+}

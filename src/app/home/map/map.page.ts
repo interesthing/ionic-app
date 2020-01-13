@@ -67,7 +67,6 @@ export class MapPage implements OnInit {
 
     const url = `${environment.apiUrl}/pois`;
     this.http.get<ListResponse<Poi>>(url).subscribe(result => {
-      console.log(result.data);
       result.data.forEach(poi => {
         this.mapMarkers.push(marker([poi.pos.coordinates[0], poi.pos.coordinates[1]], { icon: defaultIcon }).bindPopup(
           `<h6>${poi.title}</h6>
