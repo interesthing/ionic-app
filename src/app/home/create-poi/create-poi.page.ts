@@ -10,7 +10,6 @@ import { environment } from 'src/environments/environment';
 
 import { PictureService } from 'src/app/services/picture/picture.service';
 
-
 interface ResultCall {
   error?: any;
   result?: Poi;
@@ -48,9 +47,7 @@ export class CreatePoiPage implements OnInit {
     
   ngOnInit() 
   {
-    console.log(`${this.auth.getUser()["source"]["source"]["_events"][0].user._id}`);
-    console.log(`Bearer ${this.auth.getToken()["source"]["source"]["_events"][0].token}`);
-    
+
     this.geolocation.getCurrentPosition().then((resp) => {
       this.poiData.pos = {
         coordinates: [
@@ -59,8 +56,6 @@ export class CreatePoiPage implements OnInit {
         ],
         type: "Point"
       };
-      console.log(resp.coords.latitude);
-      console.log(resp.coords.longitude); 
 
      }).catch((error) => {
        console.log('Error getting location', error);
@@ -79,7 +74,6 @@ export class CreatePoiPage implements OnInit {
 
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
-    //this.pictureData = event.target.files[0];
     this.poiData.photos = event.target.files[0];
   }
 
@@ -87,11 +81,8 @@ export class CreatePoiPage implements OnInit {
     
     const uploadUrl = `${environment.apiUrl}/pois/${this.auth.getUser()["source"]["source"]["_events"][0].user._id}`;
 
-    console.log(this.poiData);
-    console.log(this.httpOptions);
-    
-    this.http.post<ResultCall>(uploadUrl, this.poiData, this.httpOptions).subscribe(r => {
-      this.router.navigate(["pois/", r.result._id]);
+    this.http.post<ResultCall>(uploadUrl, this.poiData, this.httpOptions).subscribe(res => {
+      this.router.navigate(["home/show-poi", res["_id"]]);
     });
 
     

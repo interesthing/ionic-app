@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/auth/auth.service';
+import { Poi, ListResponse } from 'src/app/models/poi';
+import { User } from 'src/app/models/user';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profil',
@@ -9,14 +13,34 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class ProfilPage implements OnInit {
 
+  pois: Array<Poi> = [];
+  user: Array<User> = [];
+  userId: string;
+
   constructor(
     // TODO: inject the authentication provider.
     private auth: AuthService,
     // TODO: inject the router
-    private router: Router
+    private router: Router,
+    // TODO: inject the HTTP client.
+    public http: HttpClient
   ) { }
 
   ngOnInit() {
+
+    const url_pois = `${environment.apiUrl}/pois`;
+
+    this.http.get<ListResponse<Poi>>(url_pois).subscribe(result => {
+      //this.ratings =
+      this.userId = this.auth.getUser()["source"]["source"]["_events"][0].user._id;
+      this.pois = result.data.filter(poi => poi.postedBy == this.userId)
+    });
+
+
+
+    this.user = this.auth.getUser()["source"]["source"]["_events"][0].user.username;
+    
+
   }
 
     // TODO: add a method to log out.

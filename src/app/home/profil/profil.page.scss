@@ -12,6 +12,26 @@ ion-button {
     margin-top: 15%;
 }
 
+ion-avatar  {     
+    width: 80px !important;
+    height: 80px !important;
+}
+
+h2 {
+    font-weight: bold;
+    background: -webkit-linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.blue {
+    color: #5173ba;
+}
+
 .header {
     height: 180px;
     background: linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
@@ -70,4 +90,15 @@ ion-button {
 
 .logout-button {
     color: #fff;
+}
+
+.modify-btn, .delete-btn {
+    font-size: 30px; 
+    position: relative;
+    left: -10px;
+    color: rgb(95,18,135);
+}
+
+.modify-btn {
+    padding-bottom: 4px;
 }

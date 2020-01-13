@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
 })
 export class IndexPage implements OnInit {
 
+  changeColor = false;
+
   pois: Array<Poi> = [];
   city: string;
 
@@ -46,6 +48,10 @@ export class IndexPage implements OnInit {
           })
       );
     });
+  }
+
+  filter(param) {
+    
   }
 
   redirectToPoiForm(){
