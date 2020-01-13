@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
 })
 export class IndexPage implements OnInit {
 
+  changeColor = false;
+
   pois: Array<Poi> = [];
 
   constructor(
@@ -37,6 +39,10 @@ export class IndexPage implements OnInit {
     this.http.get<ListResponse<Poi>>(url).subscribe(result => {
       this.pois = result.data;   
     });
+  }
+
+  filter(param) {
+    
   }
 
   redirectToPoiForm(){
