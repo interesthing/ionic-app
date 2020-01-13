@@ -18,11 +18,8 @@ export class ProfilPage implements OnInit {
   userId: string;
 
   constructor(
-    // TODO: inject the authentication provider.
     private auth: AuthService,
-    // TODO: inject the router
     private router: Router,
-    // TODO: inject the HTTP client.
     public http: HttpClient
   ) { }
 
@@ -31,7 +28,6 @@ export class ProfilPage implements OnInit {
     const url_pois = `${environment.apiUrl}/pois`;
 
     this.http.get<ListResponse<Poi>>(url_pois).subscribe(result => {
-      //this.ratings =
       this.userId = this.auth.getUser()["source"]["source"]["_events"][0].user._id;
       this.pois = result.data.filter(poi => poi.postedBy == this.userId)
     });
@@ -43,7 +39,14 @@ export class ProfilPage implements OnInit {
 
   }
 
-    // TODO: add a method to log out.
+  redirectToUpdateForm(Poi){
+    this.router.navigate(["home/update-poi", Poi._id]);
+  }
+
+  onSelect(Poi) {
+    this.router.navigate(['home/show-poi', Poi._id]);
+  }
+
   logOut() {
     console.log('logging out...');
     this.auth.logOut();
