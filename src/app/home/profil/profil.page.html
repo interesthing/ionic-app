@@ -35,20 +35,24 @@
     <ion-list>
       <h2 padding>Vos posts</h2>
       <div *ngIf="pois[0]">
-      <ion-item *ngFor="let poi of pois | slice:0:10" (click)="onSelect(poi)">
+      <ion-item *ngFor="let poi of pois | slice:0:10" >
         <ion-avatar slot="start">
           <img src="{{ poi.photos[0] }}" alt="Photo du POI">
         </ion-avatar>
         <ion-label>
           <ion-grid>
             <ion-row>
-              <ion-col>
+              <ion-col (click)="onSelect(poi)">
                 <h2>{{ poi.title }}</h2>
                 <p>{{ poi.description | slice:0:64 }} {{ poi.description.length > 64 ? '...en savoir plus' : '' }} </p>
               </ion-col>
               <ion-col size="1">
-                <ion-icon class="modify-btn" name="settings"></ion-icon><br/>
-                <ion-icon class="delete-btn" name="close-circle-outline"></ion-icon>
+              <button ion-button icon-only fill="outline" (click)="redirectToUpdateForm(poi)">
+                  <ion-icon name="settings"></ion-icon>
+                </button>
+                <button ion-button icon-only>
+                  <ion-icon name="close-circle-outline"></ion-icon>
+                </button>
               </ion-col>
             </ion-row>
           </ion-grid>

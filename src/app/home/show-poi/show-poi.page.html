@@ -7,11 +7,9 @@
 </ion-header>
 <ion-content *ngIf="poi">
   <ion-card *ngIf="poi">
-    <ion-slides pager="true">
-      <ion-slide *ngFor="let img of poi.photos">
-        <img src="{{ img }}" />
-      </ion-slide>
-    </ion-slides>
+
+        <img src="{{ poi.photos[0] }}" />
+
     <ion-card-header>
       <ion-grid>
         <ion-row>

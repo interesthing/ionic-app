@@ -32,9 +32,15 @@ const routes: Routes = [
       {
         path: 'show-poi',
         loadChildren: () => import('./show-poi/show-poi.module').then( m => m.ShowPoiPageModule)
+      },
+      {
+        path: 'update-poi',
+        loadChildren: () => import('./update-poi/update-poi.module').then( m => m.UpdatePoiPageModule)
       }
     ]
   }
+ 
+
 ];
 
 @NgModule({
