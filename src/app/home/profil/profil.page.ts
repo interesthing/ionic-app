@@ -37,7 +37,6 @@ export class ProfilPage implements OnInit {
   };
 
   ngOnInit() {
-
     const url_pois = `${environment.apiUrl}/pois`;
     const url_ratings = `${environment.apiUrl}/ratings`;
     this.userId = this.auth.getUser()["source"]["source"]["_events"][0].user._id;

@@ -8,6 +8,10 @@ import { Poi, ListResponse, Username } from 'src/app/models/poi';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
+import { WebsocketService } from 'src/websocket/websocket.service';
+import { User } from 'src/app/models/user';
+import { Rating } from 'src/app/models/rating';
+
 
 @Component({
   selector: 'app-index',
@@ -20,6 +24,9 @@ export class IndexPage implements OnInit {
 
   pois: Array<Poi> = [];
   city: string;
+  users: Array<User>;
+  ratings: Array<Rating> = [];
+  message: object;
 
   constructor(
     private auth: AuthService,
@@ -28,16 +35,31 @@ export class IndexPage implements OnInit {
 
     // TODO: inject the HTTP client.
     public http: HttpClient,
+    private wsService: WebsocketService
     
-  ){}
+  )
+  {
+    this.wsService
+    .listen()
+    .subscribe((message: any) => {
+      this.wsShow(JSON.parse(message));
+    });
+  }
+
+  wsShow(message) {
+    this.message = message;
+  }
 
   onSelect(Poi) {
     this.router.navigate(['home/show-poi', Poi._id]);
   }
 
   ngOnInit() {
-    const url = `${environment.apiUrl}/pois`;
-    this.http.get<ListResponse<Poi>>(url).subscribe(result => {
+    const urlPoi = `${environment.apiUrl}/pois`;
+    const urlUser = `${environment.apiUrl}/users`;
+    const urlRating = `${environment.apiUrl}/ratings`;
+
+    this.http.get<ListResponse<Poi>>(urlPoi).subscribe(result => {
       this.pois = result.data;
       this.pois.forEach(poi =>
         this.http
@@ -47,11 +69,27 @@ export class IndexPage implements OnInit {
            poi.city = this.city;
           })
       );
+        this.http.get<User[]>(urlUser).subscribe(user => {
+          this.users = user;  
+          
+            this.http.get<Rating[]>(urlRating).subscribe(rating => {
+              this.ratings = rating;  
+              this.message = {
+                "TotalUser": this.users.length,
+                "TotalPoi": this.pois.length,
+                "TotalRating": this.ratings.length
+              }
+              console.log(this.message)
+              this.wsShow(this.message);
+
+            });
+        });
     });
   }
 
   filter(param) {
-    
+    this.router.navigate(['home/pois']);
+    // this.router.navigate(['home/profil', userId]);
   }
 
   redirectToPoiForm(){

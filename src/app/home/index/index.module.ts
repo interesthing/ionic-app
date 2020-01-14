@@ -8,6 +8,7 @@ import { IndexPageRoutingModule } from './index-routing.module';
 
 import { IndexPage } from './index.page';
 import { StarRatingModule } from 'ionic4-star-rating';
+import { WebsocketService } from 'src/websocket/websocket.service';
 
 
 @NgModule({
@@ -19,6 +20,8 @@ import { StarRatingModule } from 'ionic4-star-rating';
     StarRatingModule,
     IndexPageRoutingModule
   ],
-  declarations: [IndexPage]
+  declarations: [IndexPage],
+  // à voir avec Mathias
+  providers: [WebsocketService]
 })
 export class IndexPageModule {}
