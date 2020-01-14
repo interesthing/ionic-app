@@ -8,7 +8,6 @@ import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
 import { HttpHeaders } from '@angular/common/http';
-import { CompileShallowModuleMetadata } from '@angular/compiler';
 
 @Component({
   selector: 'app-update-poi',
@@ -87,9 +86,6 @@ export class UpdatePoiPage implements OnInit {
          "categorie": this.poiData.categorie}
 
     this.http.patch(updateUrl, patchObject, this.httpOptions).subscribe(res => {
-     console.log(res);
-      /*poiForm.reset();
-      this.picture = null;*/
       this.router.navigate(["home/show-poi", res["_id"]]);
     });
   }

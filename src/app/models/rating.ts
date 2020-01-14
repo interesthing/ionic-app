@@ -9,3 +9,9 @@ export class Rating {
     dateAdd: string;
     user?: User;
 }
+
+export interface RatingList<Rating>{
+  filter(arg0: (res: any) => void);
+    data: object;
+    length: number;
+}
