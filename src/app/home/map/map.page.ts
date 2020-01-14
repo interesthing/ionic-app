@@ -36,7 +36,7 @@ export class MapPage implements OnInit {
           { maxZoom: 18 }
         )
       ],
-      zoom: 13,
+      zoom: 9,
       center: latLng(46.778186, 6.641524)
     };
   }
@@ -59,7 +59,7 @@ export class MapPage implements OnInit {
       const coords = position.coords;
 
       this.mapMarkers.push(marker([ coords.latitude, coords.longitude ], { icon: userIcon }).bindPopup('<h6>Votre position actuelle</h6>', { offset: [0, -45] }));
-
+      
       console.log(`User is at ${coords.longitude}, ${coords.latitude}`);
     }).catch(err => {
       console.warn(`Could not retrieve user position because: ${err.message}`);

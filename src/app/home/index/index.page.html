@@ -6,6 +6,24 @@
       </ion-toolbar>
     </ion-header>
     <ion-content fullscreen>
+      <ion-item *ngIf="message"> 
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <p><ion-icon name="contacts"></ion-icon></p>
+              <p>{{message.TotalUser}}<br>utilisateurs</p>
+            </ion-col>
+            <ion-col>
+              <p><ion-icon name="pin"></ion-icon></p>
+              <p>{{message.TotalPoi}}<br>points</p>
+            </ion-col>
+            <ion-col>
+              <p><ion-icon name="star"></ion-icon></p>
+              <p>{{message.TotalRating}}<br>avis</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>   
+      </ion-item>
       <div class="container">
         <div class="search-bars">
           <ion-searchbar placeholder="Entrez un terme..." animated></ion-searchbar>
