@@ -17,6 +17,7 @@ import { defaultIcon } from 'src/icon/defaultIcon';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-show-poi',
@@ -100,6 +101,7 @@ export class ShowPoiPage implements OnInit {
       ];
       this.mapOptions.center = latLng(this.poi.pos.coordinates[0], this.poi.pos.coordinates[1]);
     });
+
     this.http.get<Rating[]>(urlRating).subscribe(result => {
       this.rating = result;
       this.rating.forEach(rating => {
@@ -111,10 +113,10 @@ export class ShowPoiPage implements OnInit {
     });
   }
 
-  // onSelect() {
-  //   const userId = this.auth.getUser()["source"]["source"]["_events"][0].user._id;
-  //   this.router.navigate(['home/profil', userId]);
-  // }
+  usernameSelect(UserId) {
+    this.router.navigate(['home/person', UserId._id]);
+    console.log(UserId);
+  }
   
   async ratePrompt() {
     const alert = await this.alertController.create({

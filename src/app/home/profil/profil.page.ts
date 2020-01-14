@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './profil.page.html',
   styleUrls: ['./profil.page.scss'],
 })
+
 export class ProfilPage implements OnInit {
 
   pois: Array<Poi> = [];
@@ -24,7 +25,6 @@ export class ProfilPage implements OnInit {
   ) { }
 
   ngOnInit() {
-
     const url_pois = `${environment.apiUrl}/pois`;
 
     this.http.get<ListResponse<Poi>>(url_pois).subscribe(result => {
@@ -32,11 +32,7 @@ export class ProfilPage implements OnInit {
       this.pois = result.data.filter(poi => poi.postedBy == this.userId)
     });
 
-
-
     this.user = this.auth.getUser()["source"]["source"]["_events"][0].user.username;
-    
-
   }
 
   redirectToUpdateForm(Poi){

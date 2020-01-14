@@ -34,13 +34,14 @@ const routes: Routes = [
         loadChildren: () => import('./show-poi/show-poi.module').then( m => m.ShowPoiPageModule)
       },
       {
+        path: 'person',
+        loadChildren: () => import('./person/person.module').then( m => m.PersonPageModule)
+      },
         path: 'update-poi',
         loadChildren: () => import('./update-poi/update-poi.module').then( m => m.UpdatePoiPageModule)
       }
     ]
-  }
- 
-
+  },
 ];
 
 @NgModule({
