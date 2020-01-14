@@ -27,7 +27,7 @@ export class ShowPoiPage implements OnInit {
 
   user: Array<User> = [];
 
-  id: number;
+  id: string;
   poi: Poi;
   rating: Rating[];
   listOpen = false;
