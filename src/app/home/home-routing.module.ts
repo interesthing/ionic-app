@@ -37,6 +37,7 @@ const routes: Routes = [
         path: 'person',
         loadChildren: () => import('./person/person.module').then( m => m.PersonPageModule)
       },
+      {
         path: 'update-poi',
         loadChildren: () => import('./update-poi/update-poi.module').then( m => m.UpdatePoiPageModule)
       }
