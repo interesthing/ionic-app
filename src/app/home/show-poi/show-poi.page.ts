@@ -154,6 +154,7 @@ export class ShowPoiPage implements OnInit {
             return this.http.post(uploadUrl, rateData, this.httpOptions)
               .subscribe(rateData => {
                 console.log(rateData['_body']);
+                this.ngOnInit();
               }
               , error => {
                 console.log(error);
