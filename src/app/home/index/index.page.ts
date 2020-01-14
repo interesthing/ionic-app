@@ -42,7 +42,8 @@ export class IndexPage implements OnInit {
   }
 
   filter(param) {
-    
+    this.router.navigate(['home/pois']);
+    // this.router.navigate(['home/profil', userId]);
   }
 
   redirectToPoiForm(){

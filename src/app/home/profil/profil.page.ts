@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './profil.page.html',
   styleUrls: ['./profil.page.scss'],
 })
+
 export class ProfilPage implements OnInit {
 
   pois: Array<Poi> = [];
@@ -18,32 +19,22 @@ export class ProfilPage implements OnInit {
   userId: string;
 
   constructor(
-    // TODO: inject the authentication provider.
     private auth: AuthService,
-    // TODO: inject the router
     private router: Router,
-    // TODO: inject the HTTP client.
     public http: HttpClient
   ) { }
 
   ngOnInit() {
-
     const url_pois = `${environment.apiUrl}/pois`;
 
     this.http.get<ListResponse<Poi>>(url_pois).subscribe(result => {
-      //this.ratings =
       this.userId = this.auth.getUser()["source"]["source"]["_events"][0].user._id;
       this.pois = result.data.filter(poi => poi.postedBy == this.userId)
     });
 
-
-
     this.user = this.auth.getUser()["source"]["source"]["_events"][0].user.username;
-    
-
   }
 
-    // TODO: add a method to log out.
   logOut() {
     console.log('logging out...');
     this.auth.logOut();

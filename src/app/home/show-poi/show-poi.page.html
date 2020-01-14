@@ -56,7 +56,7 @@
           <img src="{{ poi.postedByUsername[0].imgProfil }}" alt="Photo de l'utilisateur">
         </ion-avatar>
         <ion-label>
-          <p class="italic">posté par <span class="blue">{{ poi.postedByUsername[0].username }}</span></p>
+          <p class="italic">posté par <span class="blue" (click)="usernameSelect(poi.postedByUsername[0])">{{ poi.postedByUsername[0].username }}</span></p>
           <p>{{ poi.dateAdd | date: 'dd/MM/yyyy' }}</p>
         </ion-label>
       </ion-item>
@@ -73,7 +73,7 @@
   <ion-card>
     <ion-card-header (click)="listOpen = !listOpen">
       <ion-card-title>
-        Avis
+        Avis <span>({{ poi.totalRating }})</span>
         <ion-icon name="arrow-dropdown" class="arrow" *ngIf="!listOpen"></ion-icon>
         <ion-icon name="arrow-dropup" class="arrow" *ngIf="listOpen"></ion-icon>
       </ion-card-title>
@@ -85,7 +85,7 @@
             defaultColor="#5173ba" readonly="true" rating="{{ rate.value }}" fontSize="14px">
           </ionic4-star-rating>
           <p>{{ rate.comment }}</p>
-          <p class="italic">posté par <span (click)="onSelect(user)" class="blue">{{ rate.user?.username }}</span></p>
+          <p class="italic">posté par <span (click)="usernameSelect(username)" class="blue">{{ rate.user?.username }}</span></p>
         </ion-label>
       </ion-item>
     </div>

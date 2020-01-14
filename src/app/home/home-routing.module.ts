@@ -32,9 +32,13 @@ const routes: Routes = [
       {
         path: 'show-poi',
         loadChildren: () => import('./show-poi/show-poi.module').then( m => m.ShowPoiPageModule)
+      },
+      {
+        path: 'person',
+        loadChildren: () => import('./person/person.module').then( m => m.PersonPageModule)
       }
     ]
-  }
+  },
 ];
 
 @NgModule({
