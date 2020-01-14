@@ -14,6 +14,7 @@ export class Poi {
     averageRating: number;
     updatedAt: string;
     postedByUsername: Username[];
+    city?: string;
 }
 
 export interface ListResponse<T> {

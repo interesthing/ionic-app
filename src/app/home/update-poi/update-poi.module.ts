@@ -4,19 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PoisPageRoutingModule } from './pois-routing.module';
+import { UpdatePoiPageRoutingModule } from './update-poi-routing.module';
 
-import { PoisPage } from './pois.page';
-import { StarRatingModule } from 'ionic4-star-rating';
+import { UpdatePoiPage } from './update-poi.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PoisPageRoutingModule,
-    StarRatingModule
+    UpdatePoiPageRoutingModule
   ],
-  declarations: [PoisPage]
+  declarations: [UpdatePoiPage]
 })
-export class PoisPageModule {}
+export class UpdatePoiPageModule {}

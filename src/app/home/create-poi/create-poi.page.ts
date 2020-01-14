@@ -9,6 +9,7 @@ import { Router } from '@angular/router'
 import { environment } from 'src/environments/environment';
 
 import { PictureService } from 'src/app/services/picture/picture.service';
+import { NgForm } from '@angular/forms';
 
 interface ResultCall {
   error?: any;
@@ -47,7 +48,7 @@ export class CreatePoiPage implements OnInit {
     
   ngOnInit() 
   {
-
+    
     this.geolocation.getCurrentPosition().then((resp) => {
       this.poiData.pos = {
         coordinates: [
@@ -65,7 +66,7 @@ export class CreatePoiPage implements OnInit {
   takePicture(){
     this.pictureService.takeAndUploadPicture().subscribe(picture => {
       this.picture = picture;
-      this.poiData.photos = [this.picture.url];
+      this.poiData.photos = [this.picture.url, this.picture.id];
       
     }, err => {
       console.warn('Could not take picture', err);
@@ -77,11 +78,13 @@ export class CreatePoiPage implements OnInit {
     this.poiData.photos = event.target.files[0];
   }
 
-  upload(poi: Poi): void {
+  upload(poiForm: NgForm): void {
     
     const uploadUrl = `${environment.apiUrl}/pois/${this.auth.getUser()["source"]["source"]["_events"][0].user._id}`;
 
     this.http.post<ResultCall>(uploadUrl, this.poiData, this.httpOptions).subscribe(res => {
+      poiForm.reset();
+      this.picture = null;
       this.router.navigate(["home/show-poi", res["_id"]]);
     });
 

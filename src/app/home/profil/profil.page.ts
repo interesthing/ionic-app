@@ -35,6 +35,14 @@ export class ProfilPage implements OnInit {
     this.user = this.auth.getUser()["source"]["source"]["_events"][0].user.username;
   }
 
+  redirectToUpdateForm(Poi){
+    this.router.navigate(["home/update-poi", Poi._id]);
+  }
+
+  onSelect(Poi) {
+    this.router.navigate(['home/show-poi', Poi._id]);
+  }
+
   logOut() {
     console.log('logging out...');
     this.auth.logOut();
