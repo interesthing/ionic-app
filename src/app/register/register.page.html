@@ -48,42 +48,85 @@
           </ion-col>
       </ion-row>
     </ion-grid>
-    <form #registerForm="ngForm" (submit)="register(registerForm)">
-        <ion-grid>
-          <ion-row class="block" justify-content-center align-items-center>
-            <ion-col size="12">
-              <div text-center>
-                <h2>Inscription</h2>
-              </div>
-              <div padding>
-                <ion-item>
-                    <ion-label position="floating">Nom d'utilisateur</ion-label>
-                    <ion-input [(ngModel)]="username" pattern="^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$" type="text" minlength="5" maxlength="20" name="username" required></ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-label position="floating">Mot de passe</ion-label>
-                  <ion-input [(ngModel)]="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="password" type="password" name="password" required></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label position="floating">Adresse e-mail</ion-label>
-                    <ion-input [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" type="email" name="email" required></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label position="floating">Photo profil</ion-label>
-                    <ion-input [(ngModel)]="imgProfil" name="imgProfil" type="text" name="imgProfil"></ion-input>
-                </ion-item>
-              </div>
-              <div class="ion-padding">
-                  <div padding>
-                      <ion-button (click)="registerAlert()" shape="round" size="large" type="submit" expand="block" [disabled]="registerForm.invalid">S'inscrire</ion-button>
-                  </div>
-              </div>
-              <div class="compte"> 
-                  <p>Tu as déjà un compte ?</p>
-                  <p><a routerLink='/login'>Connecte-toi</a></p>
-              </div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+     
+    <div text-center>
+      <h2>Créer un compte</h2>
+    </div>
+
+    <form id="register-form" [formGroup]="registerForm" (ngSubmit)="submitForm()" novalidate>
+      <!-- username input -->
+      <ion-item lines="full">
+        <ion-label position="floating">Nom d'utilisateur</ion-label>
+        <ion-input formControlName="username" type="text"></ion-input>
+      </ion-item>
+      <!-- username error messages -->
+      <div class="username-errors-box">
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.username.errors?.required">
+          <ion-icon class="error-icon" name="alert"></ion-icon>
+          Définir un nom d'utilisateur te serait utile<br />
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.username.errors?.minlength">
+          <ion-icon class="error-icon" name="alert"></ion-icon>
+          Le nom d'utilisateur doit contenir au minimum 5 caracteres<br />
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.username.errors?.maxlength">
+          <ion-icon class="error-icon" name="alert"></ion-icon>
+          Le nom d'utilisateur doit contenir au maximum 20 caracteres<br />
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.username.errors?.pattern">
+          <ion-icon class="error-icon" name="alert"></ion-icon>
+          Le nom d'utilisateur ne peut pas contenir lettres accentuées ni des caractères spéciaux tels que $!?#%... ni d'espaces<br />
+        </span>
+      </div>
+      <!-- password input -->
+      <ion-item lines="full">
+        <ion-label position="floating">Mot de passe</ion-label>
+        <ion-input formControlName="password" type="text"></ion-input>
+      </ion-item>
+      <!-- password error messages -->
+      <div class="password-errors-box">
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required">
+          <ion-icon class="error-icon" name="alert"></ion-icon>
+          Définir un mot de passe te serait utile<br />
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.minlength">
+          <ion-icon class="error-icon" name="alert"></ion-icon>
+          Le mot de passe doit contenir au minimum 5 caracteres<br />
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.pattern">
+          <ion-icon class="error-icon" name="alert"></ion-icon>
+          Le mot de passe doit contenir une lettre majuscule, une lettre minuscule, un numéro et un caractère spécial<br />
+        </span>
+      </div>
+       <!-- email input -->
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" type="text"></ion-input>
+      </ion-item>
+      <!-- email error messages -->
+      <div class="email-errors-box">
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+          <ion-icon class="error-icon" name="alert"></ion-icon>
+          N'oublie pas ton adresse email<br />
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+          <ion-icon class="error-icon" name="alert"></ion-icon>
+          Cette adresse email n'est pas valide<br />
+        </span>
+      </div>
+      <!-- profile photo input -->
+      <ion-item lines="full">
+        <ion-label position="floating">Photo de profil</ion-label>
+        <ion-input formControlName="imgProfil" type="text"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button class="submit-button" type="submit" color="tertiary" expand="block">S'inscrire</ion-button>
+        </ion-col>
+      </ion-row>
     </form>
+    <div class="compte"> 
+      <p>Tu as déjà un compte?</p>
+      <a routerLink='/login'>Connecte-toi</a>
+    </div>
 </ion-content>

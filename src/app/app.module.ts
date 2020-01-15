@@ -20,6 +20,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,7 +32,9 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     AppRoutingModule, 
     HttpClientModule, 
     IonicStorageModule.forRoot(),
-    LeafletModule.forRoot()
+    LeafletModule.forRoot(),
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     Camera,
