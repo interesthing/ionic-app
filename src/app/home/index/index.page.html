@@ -40,19 +40,19 @@
       <ion-grid padding>
         <ion-row>
           <ion-col>
-            <div (click)="filter(art)" class="filter">
+            <div (click)='filter("Art")' class="filter">
               <ion-icon name="color-palette"></ion-icon>
               <p>Art</p>
             </div>
           </ion-col>
           <ion-col>
-            <div (click)="filter(wtf)" class="filter">
+            <div (click)='filter("WTF!")' class="filter">
               <ion-icon name="outlet"></ion-icon>
               <p>WTF</p>
             </div>
           </ion-col>
           <ion-col>
-            <div (click)="filter(spots)" class="filter">
+            <div (click)='filter("Spots")' class="filter">
               <ion-icon name="bonfire"></ion-icon>
               <p>Spots</p>
             </div>
@@ -60,13 +60,13 @@
         </ion-row>
           <ion-row>
             <ion-col>
-              <div (click)="filter(funny)" class="filter">
+              <div (click)='filter("Funny")' class="filter">
                 <ion-icon name="happy"></ion-icon>
                 <p>Funny</p>
               </div>
             </ion-col>
             <ion-col>
-              <div (click)="filter(shortcuts)" class="filter">
+              <div (click)='filter("Shortcuts")' class="filter">
                 <ion-icon name="pin"></ion-icon>
                 <p>Shortcuts</p>
               </div>

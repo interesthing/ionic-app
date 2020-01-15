@@ -6,18 +6,14 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Location } from '@angular/common';
-import { StarRating } from 'ionic4-star-rating';
 import { Rating } from 'src/app/models/rating';
 import { User } from 'src/app/models/user';
 
-import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
 import { Map, latLng, marker, Marker, MapOptions, tileLayer } from 'leaflet';
 import { defaultIcon } from 'src/icon/defaultIcon';
 
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-show-poi',
@@ -47,7 +43,6 @@ export class ShowPoiPage implements OnInit {
     public http: HttpClient,
     private router: Router,
     private location: Location,
-    private geolocation: Geolocation,
     public alertController: AlertController
   ) {
 
