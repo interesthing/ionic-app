@@ -10,15 +10,15 @@
 </ion-header>
 <ion-content>
   <div class="header">
-    <h2 style="padding-top: 10px; ">{{ user }}</h2>
+    <h1>{{ user }}</h1>
     <div class="space-between">
-      <div padding class="bubble">
-        <ion-badge color="primary" mode="ios">{{ratings.length}}</ion-badge>
-        <p>Avis</p>
+      <div class="avis">
+        <ion-badge color="tertiary" mode="ios"><span class="number">{{ratings.length}}</span></ion-badge>
+        <p class="paragraph">Avis</p>
       </div>
-      <div padding class="bubble">
-        <ion-badge color="primary" mode="ios">{{pois.length}}</ion-badge>
-        <p>Posts</p>
+      <div class="posts">
+        <ion-badge color="tertiary" mode="ios"><span class="number">{{pois.length}}</span></ion-badge>
+        <p class="paragraph">Posts</p>
       </div>
     </div>
   </div>
@@ -32,31 +32,37 @@
     </div>
   </div>
   <div>
-    <ion-list>
-      <h2 padding>Vos posts</h2>
-      <div *ngIf="pois[0]">
-      <ion-item *ngFor="let poi of pois | slice:0:10" >
-        <ion-avatar slot="start">
+  <h2 padding>Tes posts</h2>
+  <ion-list>
+    <div *ngIf="pois[0]">
+      <ion-item lines="full" *ngFor="let poi of pois | slice:0:10" >
+        <ion-avatar (click)="onSelect(poi)" slot="start">
           <img src="{{ poi.photos[0] }}" alt="Photo du POI">
         </ion-avatar>
-        <ion-label>
-          <ion-grid>
-            <ion-row>
-              <ion-col (click)="onSelect(poi)">
-                <h2>{{ poi.title }}</h2>
-                <p>{{ poi.description | slice:0:64 }} {{ poi.description.length > 64 ? '...en savoir plus' : '' }} </p>
-              </ion-col>
-              <ion-col size="1">
-              <ion-button icon-only (click)="redirectToUpdateForm(poi)">
-                  <ion-icon name="settings"></ion-icon>
-                </ion-button>
-                <ion-button icon-only (click)="deletePoi(poi)">
-                  <ion-icon name="close-circle-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-label>
+        <div (click)="onSelect(poi)" class="content">
+          <h2>{{ poi.title }}</h2>
+          <p>{{ poi.description | slice:0:64 }} {{ poi.description.length > 64 ? '...en savoir plus' : '' }} </p>
+        </div>
+
+        <!-- <ion-button icon-only (click)="redirectToUpdateForm(poi)">
+          <ion-icon name="settings"></ion-icon>
+        </ion-button>
+        <ion-button icon-only>
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-button> -->
+
+        <ion-fab vertical="center" horizontal="end">
+          <ion-fab-button class="more-btn"><ion-icon name="more"></ion-icon></ion-fab-button>
+          <ion-fab-list side="start">
+            <ion-fab-button (click)="deletePoi(poi)">
+              <ion-icon name="settings"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button (click)="deletePoi(poi)">
+              <ion-icon name="close-circle-outline"></ion-icon>
+            </ion-fab-button>
+          </ion-fab-list>
+        </ion-fab>
+
       </ion-item>
     </div>
     <div *ngIf="!pois[0]">
@@ -78,8 +84,32 @@
       </ion-item>
     </div>
     </ion-list>
+
     <ion-list>
-      <h2 padding>Vos commentaires</h2>
+      <h2 padding>Tes avis</h2>
+      <div *ngIf="ratings[0]">
+        <ion-item lines="full" *ngFor="let rate of ratings | slice:0:10" >
+          <div class="rate-content">
+            <ion-grid>
+              <ion-col>
+                <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#5173ba"
+                  defaultColor="#5173ba" readonly="true" rating="{{ rate.value }}" fontSize="14px">
+                </ionic4-star-rating>
+              </ion-col>
+              <ion-col>
+                <p class="comment">{{ rate.comment }}</p>
+              </ion-col>
+            </ion-grid>
+          </div>
+          <ion-fab vertical="center" horizontal="end">
+            <ion-fab-button class="delete-btn" (click)="deleteRating(rate)">
+              <ion-icon name="close-circle-outline"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+        </ion-item>
+      </div>
+
+<!-- 
       <div *ngIf="ratings[0]">
       <ion-item *ngFor="let rate of ratings | slice:0:10" >
         <ion-label>
@@ -97,7 +127,7 @@
                   </ion-label>
                 </div>
               </ion-col>
-              <ion-col size="1">
+              <ion-col>
                 <ion-button icon-only (click)="deleteRating(rate)">
                   <ion-icon name="close-circle-outline" ></ion-icon>
                 </ion-button>
@@ -106,7 +136,7 @@
           </ion-grid>
         </ion-label>
       </ion-item>
-    </div>
+    </div> -->
     <div *ngIf="!ratings[0]">
       <ion-item *ngFor="let i of [].constructor(10)">
         <ion-avatar slot="start">
