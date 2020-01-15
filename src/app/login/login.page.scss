@@ -17,10 +17,6 @@ ion-input {
     --color: #fff;
 }
 
-/*
-    Trouver un moyen de modifier la couleur du label floating 
-*/
-
 .logo {
     -webkit-animation: shake-vertical 20s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
 	        animation: shake-vertical 20s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
@@ -31,12 +27,27 @@ img.logo {
 }
 h2, p, a {
     color: #fff;
+    position: relative;
+    top: 1rem;
 }
 .compte {
     text-align: center;
+    position: relative;
+    top: 3rem;
 }
 .content {
     --ion-grid-width: auto;
+}
+
+#login-form {
+  position: relative;
+  top: 1rem;
+}
+
+.submit-button {
+  position: relative;
+  top: 2rem;
+  width: 100%;
 }
 
 .snowflake {
@@ -44,6 +55,12 @@ h2, p, a {
   font-size: 1em;
   font-family: Arial;
   text-shadow: 0 0 1px #000;
+}
+
+.error-icon {
+  color: #ff9999;
+  position: relative;
+  font-size: 15px;
 }
 
 /* Animation keyframes */

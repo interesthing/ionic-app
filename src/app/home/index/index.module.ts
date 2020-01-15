@@ -21,7 +21,6 @@ import { WebsocketService } from 'src/websocket/websocket.service';
     IndexPageRoutingModule
   ],
   declarations: [IndexPage],
-  // à voir avec Mathias
   providers: [WebsocketService]
 })
 export class IndexPageModule {}
