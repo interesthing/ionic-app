@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { Poi, ListResponse } from 'src/app/models/poi';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pois',
@@ -21,7 +21,8 @@ export class PoisPage implements OnInit {
     private location: Location,
     public http: HttpClient,
     private router: Router,
-  ) { }
+    private route: ActivatedRoute
+  ) {}
 
   backClicked() {
     this.location.back();
@@ -48,6 +49,13 @@ export class PoisPage implements OnInit {
   }
 
   ngOnInit() {
+
+    this.route.queryParams.subscribe(
+      param => {
+          this.categorie = param.filterSelected;
+      }
+    );
+
     const url = `${environment.apiUrl}/pois`;
     this.http.get<ListResponse<Poi>>(url).subscribe(result => {
       this.poisCache = result.data;
@@ -58,7 +66,10 @@ export class PoisPage implements OnInit {
            poi.city = address.results[0].components.city_district;
           })
       );
+
       this.pois = this.poisCache;
+      this.filter();  
+
     });
     
   }

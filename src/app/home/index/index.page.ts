@@ -87,9 +87,8 @@ export class IndexPage implements OnInit {
     });
   }
 
-  filter(param) {
-    this.router.navigate(['home/pois']);
-    // this.router.navigate(['home/profil', userId]);
+  filter(filter: string) {
+    this.router.navigate(["home/pois"], { queryParams: { filterSelected: filter } });
   }
 
   redirectToPoiForm(){
