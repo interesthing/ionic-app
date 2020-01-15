@@ -57,7 +57,7 @@
         <ion-button (click)="reset()" class="filter" color="danger">Reset <ion-icon name="refresh"></ion-icon></ion-button>
       <ion-item class="filter" color="primary">
         <ion-label>Avis <ion-icon name="star"></ion-icon></ion-label>
-        <ion-select (ionChange)="filterRating($event)" cancel-text="Annuler">
+        <ion-select (ionChange)="filter()" [(ngModel)]="value" cancel-text="Annuler">
           <ion-select-option value="5">
             &#9733;
             &#9733;
@@ -87,7 +87,7 @@
       </ion-item>
       <ion-item class="filter" color="primary">
         <ion-label>Categories <ion-icon name="filing"></ion-icon></ion-label>
-        <ion-select (ionChange)="filterCategory($event)" cancel-text="Annuler">
+        <ion-select (ionChange)="filter()" [(ngModel)]="categorie" cancel-text="Annuler">
           <ion-select-option value="Art">
             Art
           </ion-select-option>

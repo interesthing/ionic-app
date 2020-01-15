@@ -14,8 +14,8 @@ export class PoisPage implements OnInit {
 
   pois: Array<Poi>;
   value: number;
-  city: string;
   categorie: string;
+  private poisCache: Poi[];
 
   constructor(
     private location: Location,
@@ -32,24 +32,13 @@ export class PoisPage implements OnInit {
   }
 
   reset() {
-    this.ngOnInit();
-  }
-
-  filterRating(event) {
-    this.value = event.target.value;
-    this.filter();
-  }
-
-  filterCategory(event) {
-    this.categorie = event.target.value;
-    this.filter();
+    this.pois = this.poisCache;
+    this.value = null;
+    this.categorie = null;
   }
 
   filter() {
-    const url = `${environment.apiUrl}/pois`;
-    this.http.get<ListResponse<Poi>>(url).subscribe(result => {
-      this.pois = result.data.filter(poi => this.applyFilter(poi));
-    });
+    this.pois = this.poisCache.filter(poi => this.applyFilter(poi));
   }
 
   applyFilter(poi: Poi): boolean {
@@ -61,15 +50,15 @@ export class PoisPage implements OnInit {
   ngOnInit() {
     const url = `${environment.apiUrl}/pois`;
     this.http.get<ListResponse<Poi>>(url).subscribe(result => {
-      this.pois = result.data;
-      this.pois.forEach(poi =>
+      this.poisCache = result.data;
+      this.poisCache.forEach(poi =>
         this.http
           .get(`${environment.geocodeApi}/geocode/v1/json?q=${poi.pos.coordinates[0]}+${poi.pos.coordinates[1]}&key=5089bd06f21940b4a2978b98ee653f58`)
           .subscribe((address: any) => {
-           this.city = address.results[0].components.city_district;
-           poi.city = this.city;
+           poi.city = address.results[0].components.city_district;
           })
       );
+      this.pois = this.poisCache;
     });
     
   }
