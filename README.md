@@ -40,20 +40,17 @@ ionic cordova run android
 * **see** the insights in real-time on the home page
 
 ### Create an account
-
-![Register](screenshots/register.png | width=100)
+<img src="screenshots/register.png" width="300"/>
 
 If you don't have an account you have to create one. You can add an image but it's not implemented and not obligatory. 
 
 ### Log in
-
-![Login](screenshots/login.png)
+<img src="screenshots/login.png" width="300"/>
 
 Now you've an account, you can simply log in.  
 
 ### Home Page
-
-![Home](screenshots/home.png)
+<img src="screenshots/home.png" width="300"/>
 
 Websocket is implemented for the real-time component. Insights are refreshed on every post or delete actions for ratings, POIs & users.
 
@@ -63,14 +60,12 @@ The search bar is not implemented yet.
 You can also see a top ten of the best POIs. 
 
 ### POI page
-
-![Poi](screenshots/poi.png)
+<img src="screenshots/poi.png" width="300"/>
 
 You can see the details from a single POI (image, localisation on a map, description), rates for this POI and see all of the ratings of the POI. 
 
 ### Post a POI
-
-![Post](screenshots/add-poi.png)
+<img src="screenshots/add-poi.png" width="300"/>
 
 You can post a POI. You have to be geolocalised to post a POI.
 
@@ -83,16 +78,13 @@ You can update your posted POIs.
 You can see all of your ratings. 
 
 ### See POI around me
-
-![Map](screenshots/map.png)
+<img src="screenshots/map.png" width="300"/>
 
 On the map section you can see the POIs around you and if you're not geolocalised, POIs that are in Switzerland globally. 
 
 ### Filter by categories
 
-<img src="screenshots/filters.png" width="100"/>
-
-![Filter](screenshots/filters.png)
+<img src="screenshots/filters.png" width="300"/>
 
 You can filter the POIs by categories or by average ratings. 
 
