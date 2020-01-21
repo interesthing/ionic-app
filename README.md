@@ -60,7 +60,7 @@ The search bar is not implemented yet.
 You can also see a top ten of the best POIs. 
 
 ### POI page
-<img src="screenshots/poi.png" width="300"/>
+<img src="screenshots/show-poi.png" width="300"/>
 
 You can see the details from a single POI (image, localisation on a map, description), rates for this POI and see all of the ratings of the POI. 
 
