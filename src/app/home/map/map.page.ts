@@ -18,9 +18,6 @@ export class MapPage implements OnInit {
   mapOptions: MapOptions;
   mapMarkers: Marker[] = [];
   pois: Array<Poi> = [];
-  
-
-
 
   constructor(
     private geolocation: Geolocation,
@@ -54,7 +51,6 @@ export class MapPage implements OnInit {
   }
 
   ngOnInit() {
-    // Geoposition is an interface that describes the position object
     this.geolocation.getCurrentPosition().then((position: Geoposition) => {
       const coords = position.coords;
 

@@ -17,8 +17,6 @@ export class PersonPage implements OnInit {
   user: User;
   pois: Array<Poi> = [];
   rating: Array<Rating> = [];
-
-  // rating data
   value: number;
   comment: string;
 
