@@ -41,7 +41,7 @@ ionic cordova run android
 
 ### Create an account
 
-![Register](screenshots/register.png)
+![Register](screenshots/register.png | width=100)
 
 If you don't have an account you have to create one. You can add an image but it's not implemented and not obligatory. 
 
