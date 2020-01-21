@@ -90,7 +90,9 @@ On the map section you can see the POIs around you and if you're not geolocalise
 
 ### Filter by categories
 
-![Filter](screenshots/filter.png)
+<img src="screenshots/filters.png" width="100"/>
+
+![Filter](screenshots/filters.png)
 
 You can filter the POIs by categories or by average ratings. 
 
