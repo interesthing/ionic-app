@@ -34,7 +34,10 @@
   <div>
   <h2 padding>Tes posts</h2>
   <ion-list>
-    <div *ngIf="pois[0]">
+    <ion-item *ngIf="pois?.length === 0">
+      <p>Aucun pois ajouté</p>
+    </ion-item>
+    <div *ngIf="pois">
       <ion-item lines="full" *ngFor="let poi of pois | slice:0:10" >
         <ion-avatar (click)="onSelect(poi)" slot="start">
           <img src="{{ poi.photos[0] }}" alt="Photo du POI">
@@ -65,7 +68,7 @@
 
       </ion-item>
     </div>
-    <div *ngIf="!pois[0]">
+    <div *ngIf="!pois">
       <ion-item *ngFor="let i of [].constructor(10)">
         <ion-avatar slot="start">
           <ion-skeleton-text animated></ion-skeleton-text>
@@ -87,7 +90,7 @@
 
     <ion-list>
       <h2 padding>Tes avis</h2>
-      <div *ngIf="ratings[0]">
+      <div *ngIf="ratings">
         <ion-item lines="full" *ngFor="let rate of ratings | slice:0:10" >
           <div class="rate-content">
             <ion-grid>
@@ -137,7 +140,10 @@
         </ion-label>
       </ion-item>
     </div> -->
-    <div *ngIf="!ratings[0]">
+    <ion-item *ngIf="ratings?.length === 0">
+      <p>Aucun avis ajoutés</p>
+    </ion-item>
+    <div *ngIf="!ratings">
       <ion-item *ngFor="let i of [].constructor(10)">
         <ion-avatar slot="start">
           <ion-skeleton-text animated></ion-skeleton-text>
