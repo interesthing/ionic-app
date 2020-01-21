@@ -27,12 +27,27 @@ img.logo {
 }
 h2, p, a {
     color: #fff;
+    position: relative;
+    top: 1rem;
 }
 .compte {
     text-align: center;
+    position: relative;
+    top: 3rem;
 }
 .content {
     --ion-grid-width: auto;
+}
+
+#login-form {
+  position: relative;
+  top: 1rem;
+}
+
+.submit-button {
+  position: relative;
+  top: 2rem;
+  width: 100%;
 }
 
 .snowflake {
@@ -40,6 +55,12 @@ h2, p, a {
   font-size: 1em;
   font-family: Arial;
   text-shadow: 0 0 1px #000;
+}
+
+.error-icon {
+  color: #ff9999;
+  position: relative;
+  font-size: 15px;
 }
 
 /* Animation keyframes */

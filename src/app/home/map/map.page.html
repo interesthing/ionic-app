@@ -11,6 +11,9 @@
   leaflet
   [leafletOptions]="mapOptions"
   [leafletLayers]="mapMarkers"
-  (leafletMapReady)="onMapReady($event)">
+  [(leafletCenter)]="mapOptions.center"
+  [(leafletZoom)]="mapOptions.zoom"
+  (leafletMapReady)="onMapReady($event)"
+  >
   </div>
 </ion-content>

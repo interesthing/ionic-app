@@ -6,6 +6,27 @@
       </ion-toolbar>
     </ion-header>
     <ion-content fullscreen>
+      <div *ngIf="!message">
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngFor="let i of [].constructor(3)">
+            <p>
+              <ion-icon id="loading-icon" name="refresh" width="5%" slot="start">
+                <ion-skeleton-text animated></ion-skeleton-text>
+              </ion-icon>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+            </p>
+        </ion-col>
+        </ion-row>
+        </ion-grid>
+        </ion-item>
+      </div>
       <ion-item *ngIf="message"> 
         <ion-grid>
           <ion-row>

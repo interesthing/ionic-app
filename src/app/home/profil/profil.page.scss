@@ -5,7 +5,8 @@ ion-toolbar {
 
 ion-title {
     --color: #fff;
-    text-align: center;
+    position: relative;
+    left: 35%; 
 }
 
 ion-button {
@@ -17,7 +18,89 @@ ion-avatar  {
     height: 80px !important;
 }
 
+ion-badge {
+    font-size: 20px;
+    border: 0.5px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: rgb(95,18,135) !important;
+    background: linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%) !important; 
+}
+
+.number {
+    position: relative;
+    top: 6px;
+}
+
+.avis {
+    position: relative;
+    left: 45px;
+}
+
+.posts {
+    position: relative;
+    right: 30px;
+}
+
+.avis .paragraph {
+    position: relative;
+    top: -10px;
+    left: -2px;
+}
+
+.posts .paragraph {
+    position: relative;
+    top: -10px;
+    left: -7px;
+}
+
+ion-avatar, .content {
+    margin: 10px;
+}
+
+h1 {
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+}
+
 h2 {
+    font-weight: bold;
+    background: -webkit-linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+.content h2 {
+    font-size: 16px;
+}
+
+.content p, .content h2 {
+    padding: 0;
+    margin: 0;
+}
+
+.content {
+    width: 77%;
+}
+
+.more-btn {
+    --background: -webkit-linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%) !important;
+}
+
+.delete-btn {
+    --background: -webkit-linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%) !important;
+}
+
+.comment {
+    margin: 0;
+}
+
+.title {
+    font-size: 18px;
     font-weight: bold;
     background: -webkit-linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
     -webkit-background-clip: text;
@@ -32,6 +115,7 @@ h2 {
     color: #5173ba;
 }
 
+
 .header {
     height: 180px;
     background: linear-gradient(20deg, rgba(95,18,135,1) 0%, rgba(81,115,186,1) 100%);
@@ -43,6 +127,12 @@ h2 {
     color: white;
     text-align: center;
     font-weight: bold;
+}
+
+.space-between p {
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
 }
 
 .space-between {
