@@ -4,44 +4,9 @@
 
 ## Description
 
-Interesthing est une application mobile développée à l'aide des frameworks [Angular](https://angular.io/) et [Ionic](https://ionicframework.com/) dans le cadre du cours « Développement Mobile », animé par [Mathias Oberson]([https://github.com/Tazaf](https://github.com/Tazaf)) à l'[HEIG-VD](https://heig-vd.ch). L'application se présente comme un « réseau social » désireux de reconnecter les utilisateurs, en faisant entrer en contact des gens géographiquement proches et présentant un ou plusieurs centres d’intérêts commun.
+Interesthing is a mobile app implemented with [Angular][angular] on [Ionic][ionic] developped during the DevMob course at HEIG-VD given by [Mathias Oberson][mathias]. The app looks like a new Google Maps. The goal of this app is to show some points of interest in every town in Switzerland (or in the world) like a graffiti (art), a funny place, a WTF?! element, a beautiful spot or still a shortcut.
 
-En effet, la proximité ouvre tout un champ de possibilités d’interactions entre les individus que ce soit pour une recherche d’informations à propos d'un endroit, de donner un avis sur un lieu ou simplement pour créer des interactions diverses au sein d’une sous population d’individus (communes, quartiers, rassemblements, etc.). Tout ceci prend place autour d'une interface simple et intuitive proposé par l'application.
-
-## Déploiement
-
-Cette application est liée à [INTERESTHING API]([https://github.com/interesthing/api](https://github.com/interesthing/api)) développée dans le cadre du cours d'Architecture et déploiement d'application animé par [Simon Oulevay](https://github.com/AlphaHydrae). Ceci permet aux utilisateurs d'enregistrer ses coordonnées d'accès, les posts effectués notamment la géolocalisation des endroits, ses photos et les avis postés par la communauté.
-
-## Comment ça marche ?
-
-### S'enregistrer
-
-### Se connecter
-
-### Poster un lieu
-
-#### Modifier un lieu
-
-### Consulter des lieux
-
-#### Recherche par thème
-
-### Laisser un avis
-
-
-Interesthing is a mobile app implemented with [Angular][angular] on [Ionic][ionic]. The goal of this app is to show the point of interest in every town in Switzerland (or in the world) like a graffity, a funny place etc. Basically, users can : 
-
-# ionic-app
-Mobile interface for interesthing app, using angular on ionic.
-
-# App Interesthing
-
-Interesthing is a mobile app implemented with [Angular][angular] on [Ionic][ionic]. The goal of this app is to show the point of interest in every town in Switzerland (or in the world) like a graffity, a funny place etc. Basically, users can : 
-
-* **log in**
-* **post** some points of interest (POI)
-* **see** all of the points of interest (POI)
-* **rate** the other points of interest (POI)
+The app is linked to [Interesthing API][api] (API REST) developped during ArchiOWeb given by [Simon Oulevay][simon].
 
 ## Requirements
 
@@ -49,22 +14,75 @@ Interesthing is a mobile app implemented with [Angular][angular] on [Ionic][ioni
 
 ## Usage
 
+To run the application locally on your browser, you can run the following command line. 
+
 ```bash
-git clone https://github.com/interesthing/api.git
-cd api
-npm ci
-npm start
+git clone https://github.com/interesthing/ionic-app.git
+cd ionic-app
+npm install
+ionic serve
 ```
 
-## Documentation
+To deploy the application to your phone, you can use Ionic built in tools. See [Ionic documentation][ionic_dev] on testing and deploying the app on a phone. On Android, deploying the application should be as simple as this command line (given that you have Android Studio installed and configured):
 
+```bash
+ionic cordova run android
+```
 
-## Real-time component 
+## What can you do with the app ?
 
-Websocket is implemented for the real-time component. An insight message is generated on every post and delete actions for ratings, points of intereste & users.
+* **log in** to the app or **create** an account
+* **post** some points of interest (POI) with an image
+* **see** all of the points of interest (POI) on a map (around me)
+* **see** the details of a specific point of interest (POI) and rates this POI
+* **filter** the points of interest (POI) by categories and average ratings
+* **rate** the other points of interest (POI)
+* **see** the insights in real-time on the home page
+
+### Create an account
+
+If you don't have an account you have to create once. You can add an image but it's not implemented and not obligatory. 
+
+### Log in
+
+Now you've an account, you can simply log in the App. 
+
+## Home Page
+
+Websocket is implemented for the real-time component. Insights are refreshed on every post and delete actions for ratings, points of intereste & users.
+
+You can also apply filter directly. 
+You can see the POI around you.
+The search bar is not implemented for now.
+You can also see a top ten of the best POIs. 
+
+### POI page
+
+You can see the details from a POI (image, localisation on a map, description), rates for this POI and see all of the ratings of the POI. 
+
+### Post a POI
+
+You can post a POI. You have to be geolocalised to post a POI.
+
+#### User Page
+
+On the user page you can disconnect your account. 
+You can update your POIs posted.
+You can see all of your ratings posted. 
+
+### See POI around me
+
+On the map section you can see the POI around you and if you're not geolocalised, the POI in Switzerland. 
+
+#### Filter by categories
+
+You can filter the POIs by categories or by average ratings. 
 
 
 [ionic]: https://ionicframework.com/docs
+[ionic_dev]: https://ionicframework.com/docs/v1/guide/testing.html
 [angular]: https://angular.io/docs
 [node]: https://nodejs.org/
 [api]: https://interesthing.herokuapp.com/
+[mathias]: https://github.com/Tazaf
+[simon]: https://github.com/AlphaHydrae
