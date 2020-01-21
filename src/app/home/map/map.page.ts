@@ -57,7 +57,7 @@ export class MapPage implements OnInit {
       this.mapMarkers.push(marker([ coords.latitude, coords.longitude ], { icon: userIcon }).bindPopup('<h6>Votre position actuelle</h6>', { offset: [0, -45] }));
       
       this.mapOptions = {
-        zoom: 15.5,
+        zoom: 16,
         center: latLng(coords.latitude, coords.longitude)
       };
 
