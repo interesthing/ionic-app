@@ -64,7 +64,7 @@ You can see the details from a POI (image, localisation on a map, description), 
 
 You can post a POI. You have to be geolocalised to post a POI.
 
-#### User Page
+### User Page
 
 On the user page you can disconnect your account. 
 You can update your POIs posted.
@@ -74,7 +74,7 @@ You can see all of your ratings posted.
 
 On the map section you can see the POI around you and if you're not geolocalised, the POI in Switzerland. 
 
-#### Filter by categories
+### Filter by categories
 
 You can filter the POIs by categories or by average ratings. 
 
