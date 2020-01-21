@@ -99,7 +99,7 @@
           <p class="text-white">Découvre les meilleurs points d'intérêts du moment !</p>
         </ion-list-header>
         <div *ngIf="pois[0]">
-        <ion-item *ngFor="let poi of pois | slice:0:10" (click)="onSelect(poi)">
+        <ion-item lines="full" *ngFor="let poi of pois | slice:0:10" (click)="onSelect(poi)">
           <ion-avatar slot="start">
             <img src="{{ poi.photos[0] }}" alt="Photo du POI">
           </ion-avatar>
@@ -122,7 +122,7 @@
         </ion-item>
       </div>
       <div *ngIf="!pois[0]">
-        <ion-item *ngFor="let i of [].constructor(10)">
+        <ion-item lines="full" *ngFor="let i of [].constructor(10)">
           <ion-avatar slot="start">
             <ion-skeleton-text animated></ion-skeleton-text>
           </ion-avatar>
