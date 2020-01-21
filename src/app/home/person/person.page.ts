@@ -17,8 +17,6 @@ export class PersonPage implements OnInit {
   user: User;
   pois: Array<Poi> = [];
   rating: Array<Rating> = [];
-
-  // rating data
   value: number;
   comment: string;
 
@@ -49,7 +47,6 @@ export class PersonPage implements OnInit {
           this.rating = result;
 
           this.rating.forEach(rating => {
-            // let urlUser = `${environment.apiUrl}/users/${rating.postedBy}`;
             this.http.get<User>(urlUser).subscribe(user => {
               rating.user = user;
 

@@ -31,38 +31,6 @@
 
   <ion-button (click)="takePicture()"> Prendre une nouvelle photo
   </ion-button>
-
-  <!---
-  <ion-fab-button (click)="takePicture()">
-    <ion-icon name="camera"></ion-icon>
-  </ion-fab-button>
-
-  
-  <ion-fab>     
-    <ion-fab-button>
-        <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  <ion-fab-list side="bottom">
-    <ion-fab-button (click)="takePicture()">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-
-    <input
-    style="display: none"
-    type="file" (change)="onFileChanged($event)"
-    #fileInput
-    [(ngModel)]="poiData.photos"
-    name="photos">
-
-    <ion-fab-button (click)="fileInput.click()"> 
-        <ion-icon name="images"></ion-icon>
-    </ion-fab-button>
-  </ion-fab-list>
-</ion-fab>
--->
-
-<!-- <img *ngIf="pictureData" src="data:image/jpeg;base64,{{ pictureData }}" /> -->
-
   <ion-button type="submit">Enregistrer mes modifications</ion-button>
 </form>
 </ion-content>
