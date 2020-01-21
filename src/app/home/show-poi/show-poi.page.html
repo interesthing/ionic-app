@@ -79,15 +79,15 @@
       </ion-card-title>
     </ion-card-header>
     <div *ngIf="rating && listOpen">
-      <ion-item *ngFor="let rate of rating">
-        <ion-label>
+      <ion-card *ngFor="let rate of rating">
+        <ion-card-content>
           <ionic4-star-rating #rating activeIcon="ios-star" defaultIcon="ios-star-outline" activeColor="#5173ba"
             defaultColor="#5173ba" readonly="true" rating="{{ rate.value }}" fontSize="14px">
           </ionic4-star-rating>
           <p>{{ rate.comment }}</p>
-          <p class="italic">posté par <span (click)="usernameSelect(username)" class="blue">{{ rate.user?.username }}</span></p>
-        </ion-label>
-      </ion-item>
+          <p class="italic">posté par <span (click)="usernameSelect(username)" class="blue">{{ rate.user?.username }}</span>, le {{ poi.dateAdd | date: 'dd/MM/yyyy' }}</p>
+        </ion-card-content>
+      </ion-card>
     </div>
       <ion-item *ngIf="rating?.length === 0 && listOpen">
         <p>Aucun avis</p>
