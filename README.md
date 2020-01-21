@@ -70,8 +70,7 @@ You can see the details from a single POI (image, localisation on a map, descrip
 You can post a POI. You have to be geolocalised to post a POI.
 
 ### User Page
-
-![User](screenshots/profile.png)
+<img src="screenshots/profile.png" width="300"/>
 
 On the user page you can log out. 
 You can update your posted POIs.
