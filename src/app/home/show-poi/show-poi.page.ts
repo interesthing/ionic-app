@@ -8,10 +8,8 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { Location } from '@angular/common';
 import { Rating } from 'src/app/models/rating';
 import { User } from 'src/app/models/user';
-
 import { Map, latLng, marker, Marker, MapOptions, tileLayer } from 'leaflet';
 import { defaultIcon } from 'src/icon/defaultIcon';
-
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
@@ -29,8 +27,6 @@ export class ShowPoiPage implements OnInit {
   rating: Rating[];
   listOpen = false;
   city: string;
-
-  // rating data
   value: number;
   comment: string;
 

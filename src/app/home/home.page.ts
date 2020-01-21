@@ -1,5 +1,4 @@
 import { Component} from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 export interface HomePageTab {
   title: string; // The title of the tab in the tab bar

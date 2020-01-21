@@ -60,29 +60,6 @@ export class ProfilPage implements OnInit {
     this.router.navigate(['home/show-poi', Poi._id]);
   }
 
-  /*deletePoi(Poi){
-
-    if(confirm("Êtes vous sûr-e de bien vouloir supprimer : \"" + Poi.title +"\" ?")){
-
-      const deleteImgUrl = `${environment.qimgUrl}/images/${Poi.photos[1]}`;
-      const deletePoiUrl = `${environment.apiUrl}/pois/${Poi._id}`;
-
-      const requestOptions = {
-        headers: {
-          Authorization: `Bearer ${environment.qimgSecret}`
-        }
-      };
-      
-      this.http.delete(deleteImgUrl, requestOptions).subscribe(res => { console.log(res)});
-      this.http.delete(deletePoiUrl, this.httpOptions).subscribe(res => { console.log(res)});
-      
-      alert("POI supprimé avec succès.");
-      
-      this.ngOnInit();
-
-    }
-  }*/
-
   async deletePoi(Poi) {
     const alert = await this.alertController.create({
       header: 'Confirmation',

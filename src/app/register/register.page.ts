@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +27,6 @@ export class RegisterPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    // form validation
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.compose([
         Validators.required,
@@ -48,12 +47,10 @@ export class RegisterPage implements OnInit {
     })
   }
 
-  // access to form control
   get errorControl() {
     return this.registerForm.controls;
   }
 
-  // was ist los on submit
   submitForm() {
     this.isSubmitted = true;
     if (!this.registerForm.valid) {
@@ -68,8 +65,6 @@ export class RegisterPage implements OnInit {
         "email" : this.registerForm.value.email,
         "imgProfil" : this.registerForm.value.imgProfil
       }
-
-      // todo here -> verify if this userData already exists on heroku
       
       return this.http.post('http://interesthing.herokuapp.com/users', userData)
         .subscribe(async data => {
@@ -91,7 +86,6 @@ export class RegisterPage implements OnInit {
             let result = await alert.onDidDismiss();
             console.log(result);
             this.router.navigateByUrl('/login');
-            // clear inputs
             this.username = "";
             this.password = "";
             this.email = "";
@@ -117,39 +111,5 @@ export class RegisterPage implements OnInit {
     let result = await alert.onDidDismiss();
     console.log(result);
   }
-
-  // register() {
-
-  //   const userData = {
-  //     "username" : this.username,
-  //     "password" : this.password,
-  //     "email" : this.email,
-  //     "imgProfil" : this.imgProfil
-  //   }
-    
-  //   return this.http.post('http://interesthing.herokuapp.com/users', userData)
-  //     .subscribe(data => {
-  //       console.log(data['_body']);
-  //       if(userData){
-  //         this.router.navigateByUrl('/login');
-  //         // clear inputs
-  //         this.username = "";
-  //         this.password = "";
-  //         this.email = "";
-  //         this.imgProfil = "";
-  //       }
-  //     }
-  //     , error => {
-  //       console.log(error);
-  //     });
-   
-  // }
-
-  // getDate(e) {
-  //   let date = new Date(e.target.value).toISOString().substring(0, 10);
-  //   this.registerForm.get('dob').setValue(date, {
-  //      onlyself: true
-  //   })
-  // }
 
 }

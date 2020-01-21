@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/auth/auth.service';
 
-import { ChildActivationStart } from '@angular/router';
 import { Poi, ListResponse, Username } from 'src/app/models/poi';
 
 import { environment } from 'src/environments/environment';
@@ -30,10 +29,7 @@ export class IndexPage implements OnInit {
 
   constructor(
     private auth: AuthService,
-
     private router: Router,
-
-    // TODO: inject the HTTP client.
     public http: HttpClient,
     private wsService: WebsocketService
     

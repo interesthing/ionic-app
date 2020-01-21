@@ -66,10 +66,8 @@ export class PoisPage implements OnInit {
            poi.city = address.results[0].components.city_district;
           })
       );
-
       this.pois = this.poisCache;
       this.filter();  
-
     });
     
   }
