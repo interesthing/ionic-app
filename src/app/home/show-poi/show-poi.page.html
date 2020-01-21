@@ -73,7 +73,7 @@
   <ion-card>
     <ion-card-header (click)="listOpen = !listOpen">
       <ion-card-title>
-        Avis <span>({{ poi.totalRating }})</span>
+        Avis <span *ngIf="poi.totalRating > 1">({{ poi.totalRating }})</span>
         <ion-icon name="arrow-dropdown" class="arrow" *ngIf="!listOpen"></ion-icon>
         <ion-icon name="arrow-dropup" class="arrow" *ngIf="listOpen"></ion-icon>
       </ion-card-title>
