@@ -4,9 +4,9 @@
 
 ## Description
 
-Interesthing is a mobile app implemented with [Angular][angular] on [Ionic][ionic] developped during the DevMob course at HEIG-VD given by [Mathias Oberson][mathias]. The app looks like a new Google Maps. The goal of this app is to show some points of interest in every town in Switzerland (or in the world) like a graffiti (art), a funny place, a WTF?! element, a beautiful spot or even a shortcut.
+Interesthing is a mobile app implemented with [Angular][angular] on [Ionic][ionic]. It has been developped during the DevMob course at HEIG-VD given by [Mathias Oberson][mathias]. The app is kind of a new Google Maps based on users' favorites. The goal of the app is to show numerous points of interest in every town of Switzerland (or the world) such as graffiti (art), funny places, WTF?! elements, beautiful spots or even shortcuts.
 
-The app is linked to [Interesthing API][api] (API REST) developped during ArchiOWeb given by [Simon Oulevay][simon].
+The app is linked to [Interesthing API][api] (API REST) developped during ArchiOWeb course given by [Simon Oulevay][simon].
 
 ## Requirements
 
@@ -23,7 +23,7 @@ npm install
 ionic serve
 ```
 
-To deploy the application to your phone, you can use Ionic built in tools. See [Ionic documentation][ionic_dev] on testing and deploying the app on a phone. On Android, deploying the application should be as simple as this command line (given that you have Android Studio installed and configured):
+To deploy the application on your phone, you can use Ionic built in tools. See [Ionic documentation][ionic_dev] about testing and deploying the app. On Android, deploying the application should be as simple as this command line (given that you have Android Studio installed and configured):
 
 ```bash
 ionic cordova run android
@@ -42,7 +42,7 @@ ionic cordova run android
 ### Create an account
 <img src="screenshots/register.png" width="300"/>
 
-If you don't have an account you have to create one. You can add an image but it's not implemented and not obligatory. 
+If you don't have an account you have to create one. 
 
 ### Log in
 <img src="screenshots/login.png" width="300"/>
@@ -54,8 +54,8 @@ Now you've an account, you can simply log in.
 
 Websocket is implemented for the real-time component. Insights are refreshed on every post or delete actions for ratings, POIs & users.
 
-You can also apply filter directly. 
-You can see the POI around you.
+You can also apply filters directly. 
+You can see the POIs around you.
 The search bar is not implemented yet.
 You can also see a top ten of the best POIs. 
 
