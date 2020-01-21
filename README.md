@@ -83,7 +83,7 @@ On the map section you can see the POIs around you and if you're not geolocalise
 
 ### Filter by categories
 
-<img src="screenshots/filters.png" width="300"/>
+<img src="screenshots/pois.png" width="300"/>
 
 You can filter the POIs by categories or by average ratings. 
 
