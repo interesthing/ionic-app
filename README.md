@@ -4,7 +4,7 @@
 
 ## Description
 
-Interesthing is a mobile app implemented with [Angular][angular] on [Ionic][ionic] developped during the DevMob course at HEIG-VD given by [Mathias Oberson][mathias]. The app looks like a new Google Maps. The goal of this app is to show some points of interest in every town in Switzerland (or in the world) like a graffiti (art), a funny place, a WTF?! element, a beautiful spot or still a shortcut.
+Interesthing is a mobile app implemented with [Angular][angular] on [Ionic][ionic] developped during the DevMob course at HEIG-VD given by [Mathias Oberson][mathias]. The app looks like a new Google Maps. The goal of this app is to show some points of interest in every town in Switzerland (or in the world) like a graffiti (art), a funny place, a WTF?! element, a beautiful spot or even a shortcut.
 
 The app is linked to [Interesthing API][api] (API REST) developped during ArchiOWeb given by [Simon Oulevay][simon].
 
@@ -43,30 +43,30 @@ ionic cordova run android
 
 ![Register](screenshots/register.png)
 
-If you don't have an account you have to create once. You can add an image but it's not implemented and not obligatory. 
+If you don't have an account you have to create one. You can add an image but it's not implemented and not obligatory. 
 
 ### Log in
 
 ![Login](screenshots/login.png)
 
-Now you've an account, you can simply log in the App. 
+Now you've an account, you can simply log in.  
 
 ### Home Page
 
 ![Home](screenshots/home.png)
 
-Websocket is implemented for the real-time component. Insights are refreshed on every post and delete actions for ratings, points of intereste & users.
+Websocket is implemented for the real-time component. Insights are refreshed on every post or delete actions for ratings, POIs & users.
 
 You can also apply filter directly. 
 You can see the POI around you.
-The search bar is not implemented for now.
+The search bar is not implemented yet.
 You can also see a top ten of the best POIs. 
 
 ### POI page
 
 ![Poi](screenshots/poi.png)
 
-You can see the details from a POI (image, localisation on a map, description), rates for this POI and see all of the ratings of the POI. 
+You can see the details from a single POI (image, localisation on a map, description), rates for this POI and see all of the ratings of the POI. 
 
 ### Post a POI
 
@@ -78,15 +78,15 @@ You can post a POI. You have to be geolocalised to post a POI.
 
 ![User](screenshots/profile.png)
 
-On the user page you can disconnect your account. 
-You can update your POIs posted.
-You can see all of your ratings posted. 
+On the user page you can log out. 
+You can update your posted POIs.
+You can see all of your ratings. 
 
 ### See POI around me
 
 ![Map](screenshots/map.png)
 
-On the map section you can see the POI around you and if you're not geolocalised, the POI in Switzerland. 
+On the map section you can see the POIs around you and if you're not geolocalised, POIs that are in Switzerland globally. 
 
 ### Filter by categories
 
