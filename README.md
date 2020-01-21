@@ -47,7 +47,7 @@ If you don't have an account you have to create once. You can add an image but i
 
 Now you've an account, you can simply log in the App. 
 
-## Home Page
+### Home Page
 
 Websocket is implemented for the real-time component. Insights are refreshed on every post and delete actions for ratings, points of intereste & users.
 
