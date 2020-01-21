@@ -41,13 +41,19 @@ ionic cordova run android
 
 ### Create an account
 
+![Register](screenshots/register.png)
+
 If you don't have an account you have to create once. You can add an image but it's not implemented and not obligatory. 
 
 ### Log in
 
+![Login](screenshots/login.png)
+
 Now you've an account, you can simply log in the App. 
 
 ### Home Page
+
+![Home](screenshots/home.png)
 
 Websocket is implemented for the real-time component. Insights are refreshed on every post and delete actions for ratings, points of intereste & users.
 
@@ -58,13 +64,19 @@ You can also see a top ten of the best POIs.
 
 ### POI page
 
+![Poi](screenshots/poi.png)
+
 You can see the details from a POI (image, localisation on a map, description), rates for this POI and see all of the ratings of the POI. 
 
 ### Post a POI
 
+![Post](screenshots/add-poi.png)
+
 You can post a POI. You have to be geolocalised to post a POI.
 
 ### User Page
+
+![User](screenshots/profile.png)
 
 On the user page you can disconnect your account. 
 You can update your POIs posted.
@@ -72,9 +84,13 @@ You can see all of your ratings posted.
 
 ### See POI around me
 
+![Map](screenshots/map.png)
+
 On the map section you can see the POI around you and if you're not geolocalised, the POI in Switzerland. 
 
 ### Filter by categories
+
+![Filter](screenshots/filter.png)
 
 You can filter the POIs by categories or by average ratings. 
 
