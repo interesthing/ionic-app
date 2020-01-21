@@ -49,7 +49,6 @@ export class PersonPage implements OnInit {
           this.rating = result;
 
           this.rating.forEach(rating => {
-            // let urlUser = `${environment.apiUrl}/users/${rating.postedBy}`;
             this.http.get<User>(urlUser).subscribe(user => {
               rating.user = user;
 

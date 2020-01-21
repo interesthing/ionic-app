@@ -25,107 +25,71 @@ interface ResultCall {
 
 export class CreatePoiPage implements OnInit {
   
-  poiData: Poi;
-  pictureData: string;
-  selectedFile: File;
-  picture: QimgResponse;
+    poiData: Poi;
+    pictureData: string;
+    selectedFile: File;
+    picture: QimgResponse;
 
-  constructor(private http: HttpClient,
-              private geolocation: Geolocation,
-              private auth: AuthService,
-              private pictureService: PictureService,
-              private router: Router,
-    ){
-      this.poiData = new Poi();
+    constructor(private http: HttpClient,
+                private geolocation: Geolocation,
+                private auth: AuthService,
+                private pictureService: PictureService,
+                private router: Router,
+      ){
+        this.poiData = new Poi();
+      }
+
+    httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.auth.getToken()["source"]["source"]["_events"][0].token}`
+      })
+    };
+      
+    ngOnInit() 
+    {
+      
+      this.geolocation.getCurrentPosition().then((resp) => {
+        this.poiData.pos = {
+          coordinates: [
+            resp.coords.latitude,
+            resp.coords.longitude
+          ],
+          type: "Point"
+        };
+
+      }).catch((error) => {
+        console.log('Error getting location', error);
+      });
     }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.auth.getToken()["source"]["source"]["_events"][0].token}`
-    })
-  };
-    
-  ngOnInit() 
-  {
-    
-    this.geolocation.getCurrentPosition().then((resp) => {
-      this.poiData.pos = {
-        coordinates: [
-          resp.coords.latitude,
-          resp.coords.longitude
-        ],
-        type: "Point"
-      };
+    takePicture(){
+      this.pictureService.takeAndUploadPicture().subscribe(picture => {
+        this.picture = picture;
+        this.poiData.photos = [this.picture.url, this.picture.id];
+        
+      }, err => {
+        console.warn('Could not take picture', err);
+      });
+    }
 
-     }).catch((error) => {
-       console.log('Error getting location', error);
-     });
+    onFileChanged(event) {
+      this.selectedFile = event.target.files[0];
+      this.poiData.photos = event.target.files[0];
+    }
+
+    upload(poiForm: NgForm): void {
+      
+      const uploadUrl = `${environment.apiUrl}/pois/${this.auth.getUser()["source"]["source"]["_events"][0].user._id}`;
+
+      this.http.post<ResultCall>(uploadUrl, this.poiData, this.httpOptions).subscribe(res => {
+        poiForm.reset();
+        this.picture = null;
+        this.router.navigate(["home/show-poi", res["_id"]]);
+      });
   }
 
-  takePicture(){
-    this.pictureService.takeAndUploadPicture().subscribe(picture => {
-      this.picture = picture;
-      this.poiData.photos = [this.picture.url, this.picture.id];
-      
-    }, err => {
-      console.warn('Could not take picture', err);
-    });
-  }
-
-  onFileChanged(event) {
-    this.selectedFile = event.target.files[0];
-    this.poiData.photos = event.target.files[0];
-  }
-
-  upload(poiForm: NgForm): void {
-    
-    const uploadUrl = `${environment.apiUrl}/pois/${this.auth.getUser()["source"]["source"]["_events"][0].user._id}`;
-
-    this.http.post<ResultCall>(uploadUrl, this.poiData, this.httpOptions).subscribe(res => {
-      poiForm.reset();
-      this.picture = null;
-      this.router.navigate(["home/show-poi", res["_id"]]);
-    });
-
-    
-    /*
-    const uploadPoiCall = this.http.post<ResultCall>(uploadUrl, this.poiData, this.httpOptions)
-      .pipe(
-        catchError(error => of({
-          error: error,
-          type: 'error'
-        })
-      ));
-      
-      
-      
-    const uploadImageCall = this.http.post<ResultCall>(uploadImageUrl, this.pictureData, this.httpQimgOptions).pipe(
-      catchError(error => of({
-        error: error,
-        type: 'error'
-      })
-    )); 
-
-    
-    forkJoin({
-
-      poi: uploadPoiCall,
-      image: this.takePicture
-
-    }).subscribe(results => {
-      if (results.image.error){
-        console.log("Erreurs de l'API de Qimg.");
-      }else if(results.poi.error){
-        console.log("Erreurs de l'API Intersthing.");
-      }else if(results.poi.error && results.image.error){
-        console.log("Erreurs de l'API Intersthing et de l'API de Qimg.");
-      }else{
-        console.log("Votre POI a été créé avec succés.");
-      }}) 
-    */}
-
-  }
+}
 
   
 
