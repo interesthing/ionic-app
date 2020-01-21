@@ -4,14 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content padding>
 
 <form #updateForm="ngForm" (submit)="updatePoiForm(updateForm)">
     
   <ion-label>Titre</ion-label>
   <ion-input [(ngModel)]="poiData.title" type="text" placeholder="Titre" name="title" required></ion-input>
   <ion-label>Description (Min: 5, Max: 300)</ion-label>
-  <ion-input [(ngModel)]="poiData.description" type="text" placeholder="Description" name="desc" required></ion-input>
+  <ion-textarea class="textarea" [(ngModel)]="poiData.description" type="text" placeholder="Description" name="desc" required></ion-textarea>
 
   <ion-list>
     <ion-item>
@@ -26,43 +26,13 @@
     </ion-item>
   </ion-list>
   
-  <h2 *ngIf='currentImgUrl'>Photo actuelle </h2>
+  <h2 *ngIf='currentImgUrl'>Photo actuelle</h2>
   <img src="{{currentImgUrl}}">
 
-  <ion-button (click)="takePicture()"> Prendre une nouvelle photo
-  </ion-button>
-
-  <!---
-  <ion-fab-button (click)="takePicture()">
-    <ion-icon name="camera"></ion-icon>
-  </ion-fab-button>
-
+  <div class="btns">
+    <ion-button (click)="takePicture()">Prendre une nouvelle photo</ion-button>
+    <ion-button type="submit">Enregistrer mes modifications</ion-button>
+  </div>
   
-  <ion-fab>     
-    <ion-fab-button>
-        <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  <ion-fab-list side="bottom">
-    <ion-fab-button (click)="takePicture()">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-
-    <input
-    style="display: none"
-    type="file" (change)="onFileChanged($event)"
-    #fileInput
-    [(ngModel)]="poiData.photos"
-    name="photos">
-
-    <ion-fab-button (click)="fileInput.click()"> 
-        <ion-icon name="images"></ion-icon>
-    </ion-fab-button>
-  </ion-fab-list>
-</ion-fab>
--->
-
-<!-- <img *ngIf="pictureData" src="data:image/jpeg;base64,{{ pictureData }}" /> -->
-
-  <ion-button type="submit">Enregistrer mes modifications</ion-button>
 </form>
 </ion-content>
