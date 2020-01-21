@@ -4,14 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content padding>
 
 <form #updateForm="ngForm" (submit)="updatePoiForm(updateForm)">
     
   <ion-label>Titre</ion-label>
   <ion-input [(ngModel)]="poiData.title" type="text" placeholder="Titre" name="title" required></ion-input>
   <ion-label>Description (Min: 5, Max: 300)</ion-label>
-  <ion-input [(ngModel)]="poiData.description" type="text" placeholder="Description" name="desc" required></ion-input>
+  <ion-textarea class="textarea" [(ngModel)]="poiData.description" type="text" placeholder="Description" name="desc" required></ion-textarea>
 
   <ion-list>
     <ion-item>
@@ -26,11 +26,13 @@
     </ion-item>
   </ion-list>
   
-  <h2 *ngIf='currentImgUrl'>Photo actuelle </h2>
+  <h2 *ngIf='currentImgUrl'>Photo actuelle</h2>
   <img src="{{currentImgUrl}}">
 
-  <ion-button (click)="takePicture()"> Prendre une nouvelle photo
-  </ion-button>
-  <ion-button type="submit">Enregistrer mes modifications</ion-button>
+  <div class="btns">
+    <ion-button (click)="takePicture()">Prendre une nouvelle photo</ion-button>
+    <ion-button type="submit">Enregistrer mes modifications</ion-button>
+  </div>
+  
 </form>
 </ion-content>
