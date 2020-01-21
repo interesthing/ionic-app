@@ -1,5 +1,7 @@
 # Interesthing app
 
+![Accueil](screenshots/accueil.png)
+
 ## Description
 
 Interesthing est une application mobile développée à l'aide des frameworks [Angular](https://angular.io/) et [Ionic](https://ionicframework.com/) dans le cadre du cours « Développement Mobile », animé par [Mathias Oberson]([https://github.com/Tazaf](https://github.com/Tazaf)) à l'[HEIG-VD](https://heig-vd.ch). L'application se présente comme un « réseau social » désireux de reconnecter les utilisateurs, en faisant entrer en contact des gens géographiquement proches et présentant un ou plusieurs centres d’intérêts commun.
